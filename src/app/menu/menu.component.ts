@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { utenteLogged } from 'src/Utente/utenteLogged';
+
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +8,7 @@ import { utenteLogged } from 'src/Utente/utenteLogged';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(public logged:utenteLogged) { }
+  constructor() { }
 
   ngOnInit(): void {
     
