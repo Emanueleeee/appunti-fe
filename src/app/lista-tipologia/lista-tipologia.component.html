@@ -1,0 +1,89 @@
+<style>
+  th {
+    background-color:  rgb(236, 163, 230);
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  tr {
+
+    border-style: ridge;
+    border-color: rgb(0, 0, 0);
+    font-weight: bolder;
+
+  }
+
+  div {
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+    clear: left;
+    height: auto;
+    z-index: 0;
+  }
+
+  td {
+    text-align: center;
+    border: 3px double black;
+    font-weight: bold;
+    background-color:rgb(244, 205, 241);
+    font-size: large;
+
+  }
+  .variabili-tipologia{
+
+    text-align: center;
+    border: 3px double black;
+    font-weight: light;
+    padding: 90px;
+  }
+  button{
+    background-color:  rgb(236, 163, 230);
+    padding: 50px;
+    text-align: center;
+    text-size-adjust:inherit;
+  }
+  img{
+    width: 200px;
+    height: 200px;
+  }
+  table{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+</style>
+<div>
+  <br>
+  <br>
+  <table>
+    <tr>
+      <th>Descrizione</th>
+      <th>Capienza</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let x of arrTipologia">
+      <td width="25%" class="variabili-tipologia">
+        {{x.descrizione}}
+      </td>
+      <td width="25%" class="variabili-tipologia">
+        {{x.capienza}}
+      </td>
+      <td *ngIf="x.id==1">
+        <img src="https://play-lh.googleusercontent.com/GLcSh1pbEYqIO0lnbSN1UZDwYS06inZTQpsWpEqEyu2_WSwsSlCZBewGDLwgb_BXnLA=s256-rw">
+
+      </td>
+      <td *ngIf="x.id==2">
+        <img src="https://i.pinimg.com/originals/9c/cc/10/9ccc10935300710f719c68199aaf69c6.jpg">
+
+      </td>
+      <td *ngIf="x.id==3">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/06/cc/fb/b2/arcotel-rubin.jpg">
+
+      </td>
+      <td><button (click) = "dettagli(x.id)">Prenota qui la tua stanza!</button></td>
+    </tr>
+  </table>
+</div>

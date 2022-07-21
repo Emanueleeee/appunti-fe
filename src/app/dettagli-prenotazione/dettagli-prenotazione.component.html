@@ -1,0 +1,148 @@
+<style>
+  th {
+    background-color: rgb(236, 163, 230);
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  tr {
+    border-style: ridge;
+    border-color: rgb(0, 0, 0);
+    font-weight: bolder;
+  }
+
+  div {
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+    clear: left;
+    height: auto;
+    z-index: 0;
+  }
+
+  td {
+    text-align: center;
+    border: 3px double black;
+    font-weight: bold;
+    background-color: rgb(244, 205, 241);
+    font-size: large;
+  }
+
+  .variabili-tipologia {
+    text-align: center;
+    border: 3px double black;
+    font-weight: light;
+    padding: 50px;
+  }
+
+  button {
+    background-color: rgb(236, 163, 230);
+    padding: 0px;
+    text-align: center;
+    text-size-adjust: inherit;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  p.login-paragraph {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 25px 0;
+  }
+  button.cancellazione{
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 45%;
+    margin-right: 45%;
+    height: 90px;
+  }
+</style>
+<div>
+  <br />
+  <br />
+
+  <br />
+  <table>
+    <tr>
+      <th>Stanza</th>
+      <th *ngIf="modalita == false">Ospiti</th>
+      <th>Servizi</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td
+        width="25%"
+        class="variabili-tipologia"
+        *ngIf="logged.u.gestore == true"
+      >
+        {{ prenotazione.stanza.numeroStanza }}
+      </td>
+      <td
+        width="25%"
+        class="variabili-tipologia"
+        *ngIf="logged.u.gestore == false"
+      >
+        {{ prenotazione.stanza.tipologia.descrizione }}
+      </td>
+      <td *ngIf="modalita == false"
+        width="25%"
+        class="variabili-tipologia">
+        <a *ngFor="let x of prenotazione.listaOspiti">
+          {{ x.nome }}
+          {{ x.cognome }} <br />
+        </a>
+      </td>
+      <td>
+        <a *ngFor="let y of prenotazione.listaServizi"> {{ y.descrizione }} <br /> </a>
+      </td>
+      <td>
+        <button *ngIf="modalita == false" (click)="modificaOspiti()">
+          Modifica Ospiti
+        </button>
+        <br />
+        <app-ospiti
+          *ngIf="modalita == true && confermato == false"
+          [arrOspiti]="prenotazione.listaOspiti"
+          [nOspitiMax]="prenotazione.stanza.tipologia.capienza"
+          (newItemEvent)="confermaOspiti($event)"
+        ></app-ospiti
+        ><br />
+        <span *ngIf="modalitaS == false">
+            <button  (click)="modificaServizi()">
+              Modifica Servizi
+            </button>
+          <br>
+          <br>
+            <button  (click)="ConfermaServiziFiglio([])">
+              Cancella Servizi
+            </button>
+          <br />
+          </span>
+
+        <app-servizi
+          *ngIf="modalitaS == true && confermatoS == true"
+          [arrServizi]="prenotazione.listaServizi"
+          (newItemEvent)="ConfermaServiziFiglio($event)"
+        ></app-servizi
+        ><br />
+
+
+      </td>
+
+    </tr>
+
+  </table>
+</div>
+
+<button class="cancellazione" *ngIf="modalita == false" (click)="cancella()">Cancella Prenotazione</button>
