@@ -19,7 +19,6 @@ import { Router } from '@angular/router';
 })
 export class AppuntiComponent implements OnInit {
 
-  constructor() {   }
 
   tags:Tag[]=[];
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");

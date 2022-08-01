@@ -5,10 +5,6 @@ import { Appunti    } from 'src/app/model/appunti';
 import { User       } from 'src/app/model/user';
 
 
-import { Observable } from 'rxjs';
-import { Appunti } from '../model/Appunti';
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -22,9 +18,7 @@ export class AppuntiService {
   AppuntiPerUtente(id:number):Observable<Appunti[]>{
   return this.http.post<Appunti[]>(this.url+"/listaAppuntiUtente",id);
 
-
-  url: string = "http://localhost:8080"
-  constructor(private http:HttpClient) { }
+  }
 
   nuovoAppunto(appunto:Appunti):Observable<Appunti>{
     return this.http.post<Appunti>(this.url+'/salvaAppunti',appunto);

@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { UserService } from '../_services/user.service';
 
 import { Appunti    } from 'src/app/model/appunti';
-import { RepoAppunti    } from 'src/app/repositories/repoappunti';
 import { User } from '../model/User';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { RepoAppunti } from '../repositories/RepoAppunti';
 
 
 
@@ -23,8 +23,8 @@ export class BoardUserComponent implements OnInit {
   constructor(
     private userService: UserService,
     public repoAppunti:RepoAppunti,
-    public token:TokenStorageService) { }
-  constructor(private userService: UserService, public router:Router) { }
+    public token:TokenStorageService,
+   public router:Router) { }
 
 
   ngOnInit(): void {
