@@ -24,7 +24,7 @@ export class RepoAppunti {
     }
 
     listaAppuntiUtente(id:number){
-     return this.serviceAppunti. AppuntiPerUtente(id)
+     return this.serviceAppunti.AppuntiPerUtente(id)
 
     }
 }

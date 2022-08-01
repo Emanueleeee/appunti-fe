@@ -3,6 +3,7 @@ import { UserService } from '../_services/user.service';
 import { Appunti    } from 'src/app/model/appunti';
 import { RepoAppunti    } from 'src/app/repositories/repoappunti';
 import { User } from '../model/User';
+import { TokenStorageService } from '../_services/token-storage.service';
 @Component({
   selector: 'app-board-user',
   templateUrl: './board-user.component.html',
@@ -10,13 +11,14 @@ import { User } from '../model/User';
 })
 export class BoardUserComponent implements OnInit {
   appunti:Appunti[]=[]
-  user:User=new User(0,"","","")
+  user:User= this.token.getUser()
 
   content: string;
 
   constructor(
     private userService: UserService,
-    public repoAppunti:RepoAppunti) { }
+    public repoAppunti:RepoAppunti,
+    public token:TokenStorageService) { }
 
   ngOnInit(): void {
     this.userService.getUserBoard().subscribe(
