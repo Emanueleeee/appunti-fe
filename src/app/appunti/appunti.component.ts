@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RepoAppunti } from 'src/app/repositories/RepoAppunti';
+import { Appunti } from 'src/app/model/Appunti';
 
 @Component({
   selector: 'app-appunti',
@@ -6,9 +8,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appunti.component.css']
 })
 export class AppuntiComponent implements OnInit {
-
-  constructor() {  }
-
   ngOnInit(): void {
   }
 
