@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Appunti } from '../model/Appunti';
+import { RepoAppunti } from '../repositories/RepoAppunti';
 import { UserService } from '../_services/user.service';
 
 @Component({
@@ -9,8 +11,9 @@ import { UserService } from '../_services/user.service';
 export class BoardAdminComponent implements OnInit {
 
   content: string;
+  arrAppunti:Appunti[]=[]
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, public repoAppunti:RepoAppunti) { }
 
   ngOnInit(): void {
     this.userService.getAdminBoard().subscribe(
@@ -21,6 +24,8 @@ export class BoardAdminComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     );
+    this.repoAppunti.listaAppunti().subscribe(x=>{this.arrAppunti=x;});
+    console.log(this.arrAppunti)
   }
 
 }
