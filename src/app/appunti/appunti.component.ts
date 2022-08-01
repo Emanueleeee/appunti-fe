@@ -9,9 +9,7 @@ import { User } from '../model/User';
 import { ERole } from '../model/ERole';
 import { Role } from '../model/Role';
 import { Router } from '@angular/router';
-=======
-import { RepoAppunti } from 'src/app/repositories/RepoAppunti';
-import { Appunti } from 'src/app/model/Appunti';
+
 
 
 @Component({

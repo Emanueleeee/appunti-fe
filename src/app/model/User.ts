@@ -12,5 +12,5 @@ export class User{
 
         public roles:Role[]=[],
         public listaAppunti?:Appunti){}
-        public listaAppunti?:Appunti[]){}
+        
 }

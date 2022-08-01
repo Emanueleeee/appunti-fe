@@ -40,7 +40,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
 
       {path:'appunti',component:AppuntiComponent},
-      {path:'boardUser',component:BoardUserComponent}
+      {path:'boardUser',component:BoardUserComponent},
       {path: 'listaAppunti', component:AppuntiComponent},
       
     ])
