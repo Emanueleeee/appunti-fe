@@ -4,14 +4,16 @@
 
 .par{
     background-image: url(https://www.webtools.services/paper-template/assets/img/printable-7_1mm-blue-line-ruled-paper-with-horizontal-and-vertical-margins-1000.png);
-
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100vh;
 }
 
 .font{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.title{
+.h1{
     font-size: large;
     font-weight: bold;
 }

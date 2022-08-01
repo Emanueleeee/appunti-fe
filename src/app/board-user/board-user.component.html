@@ -4,6 +4,25 @@
   </header>
 </div>
 <div class="centered par font title">
-  AAA
+  <h1>TITOLO APPUNTO</h1>
+<h3 class="par">Appunti Java 8 </h3>
+<p class="par"></p>
+54
 
+<table>
+     <ng-container *ngFor="let x of appunti">
+        <td>
+          {{x.titolo}}
+        </td>
+        <td>
+          {{x.sottotitolo}}
+        </td>
+        <td>
+          {{x.testo}}
+        </td>
+        <td>
+          {{x.user.username}}
+        </td>
+     </ng-container>
+</table>
 </div>
