@@ -1,4 +1,4 @@
-import { AppUser } from "./User";
+import { User } from "./User";
 import { BaseEntity } from "./BaseEntity";
 import { Tag } from "./Tag";
 
@@ -8,7 +8,7 @@ export class Appunti extends BaseEntity {
       public titolo:String,
       public sottotitolo:String,
       public testo:String,
-      public appUser:AppUser,
+      public User:User,
       public tags:Tag[]
 
     ){

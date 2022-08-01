@@ -1,6 +1,8 @@
+import { ERole } from "./ERole";
+
 export class Role {
     public id:number;
-    public ERole name;
+    public name:ERole;
 
     constructor(){}
 }
