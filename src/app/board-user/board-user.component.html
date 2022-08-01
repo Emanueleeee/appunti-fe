@@ -2,5 +2,36 @@
   <header class="jumbotron">
     <p>{{ content }}</p>
   </header>
+</div>
+<div class="centered par font title">
+<p class="par"></p>
+
+
+<table>
+     <table *ngFor="let x of appunti">
+      <tr>
+        <th>Data Creazione</th>
+        <th>Data Ultima Modifica</th>
+        <th>Utente_Creazione</th>
+        <th>Utente_Modifica</th>
+        <th>Titolo</th>
+        <th>Link al Testo</th>
+        <th>Sottotitolo</th>
+      </tr>
+        <td>
+          {{x.titolo}}
+        </td>
+        <td>
+          {{x.sottotitolo}}
+        </td>
+        <td>
+          {{x.testo}}
+        </td>
+        <td>
+          {{x.user.username}}
+        </td>
+     </table>
+</table>
+
   <button (click)="aggiungiAppunto()" routerLink="/appunti" class="btn btn-secondary btn-lg">Crea Appunto</button>
 </div>

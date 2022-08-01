@@ -1,0 +1,34 @@
+.centered{
+    text-align: center;
+}
+
+.par{
+    background-image: url();
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100vh;
+}
+
+.font{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.h1{
+    font-size: large;
+    font-weight: bold;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

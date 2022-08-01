@@ -36,6 +36,9 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
+
+    
     HttpClientModule,
     RouterModule.forRoot([
 
