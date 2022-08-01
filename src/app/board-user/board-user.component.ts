@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../_services/user.service';
+
 import { Appunti    } from 'src/app/model/appunti';
 import { RepoAppunti    } from 'src/app/repositories/repoappunti';
 import { User } from '../model/User';
 import { TokenStorageService } from '../_services/token-storage.service';
+
+
+
 @Component({
   selector: 'app-board-user',
   templateUrl: './board-user.component.html',
@@ -19,6 +24,8 @@ export class BoardUserComponent implements OnInit {
     private userService: UserService,
     public repoAppunti:RepoAppunti,
     public token:TokenStorageService) { }
+  constructor(private userService: UserService, public router:Router) { }
+
 
   ngOnInit(): void {
     this.userService.getUserBoard().subscribe(
@@ -32,5 +39,9 @@ export class BoardUserComponent implements OnInit {
       
   }
   
+
+  aggiungiAppunto(){
+    this.router.navigate(['/appunti']);
+  }
 
 }

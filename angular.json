@@ -120,8 +120,9 @@
         }
       }
     }},
-  "defaultProject": "Angular10JwtAuth",
+ "defaultProject": "Angular10JwtAuth",
   "cli": {
     "analytics": false
   }
+ feature-listaAppuntiXUtente
 }

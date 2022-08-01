@@ -1,1 +1,31 @@
-<p>appunti works!</p>
+
+<p>Inserisci Nuovo Appunto</p>
+<div>
+    <table>
+
+        <tr>
+            <th>Titolo</th>
+            <td width="25%">
+                <input [(ngModel)]="appunto.titolo">
+            </td>
+        </tr>
+        <tr>
+            <th>Sottotitolo</th>
+            <td width="25%">
+                <input [(ngModel)]="appunto.sottotitolo">
+            </td>
+        </tr>
+        <tr>
+            <th>Testo</th>
+            <td width="25%">
+                <input [(ngModel)]="appunto.testo">
+            </td>
+        </tr>
+  
+        <tr>
+            <td>
+                <button (click)="aggiungiAppunto()" class="btn btn-secondary btn-lg">Aggiungi</button>
+            </td>
+        </tr>
+    </table>
+</div>
