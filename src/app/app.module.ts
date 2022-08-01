@@ -37,7 +37,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path:'appunti',component:AppuntiComponent}
+      {path:'appunti',component:AppuntiComponent},
+      {path:'boardUser',component:BoardUserComponent}
     ])
   ],
   providers: [authInterceptorProviders],
