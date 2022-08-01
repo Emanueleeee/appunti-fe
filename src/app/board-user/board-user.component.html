@@ -4,13 +4,20 @@
   </header>
 </div>
 <div class="centered par font title">
-  <h1>TITOLO APPUNTO</h1>
-<h3 class="par">Appunti Java 8 </h3>
 <p class="par"></p>
-54
+
 
 <table>
-     <ng-container *ngFor="let x of appunti">
+     <table *ngFor="let x of appunti">
+      <tr>
+        <th>Data Creazione</th>
+        <th>Data Ultima Modifica</th>
+        <th>Utente_Creazione</th>
+        <th>Utente_Modifica</th>
+        <th>Titolo</th>
+        <th>Link al Testo</th>
+        <th>Sottotitolo</th>
+      </tr>
         <td>
           {{x.titolo}}
         </td>
@@ -23,6 +30,7 @@
         <td>
           {{x.user.username}}
         </td>
-     </ng-container>
+     </table>
 </table>
+
 </div>

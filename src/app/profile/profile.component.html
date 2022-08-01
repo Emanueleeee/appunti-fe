@@ -1,22 +1,22 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
+<div class="container background" *ngIf="currentUser; else loggedOut">
   <header class="jumbotron">
     <h3>
       <strong>{{ currentUser.username }}</strong> Profile
     </h3>
   </header>
   <p>
-    <strong>Token:</strong>
+    <strong class="par">Token:</strong>
     {{ currentUser.accessToken}}
   </p>
   <p>
-    <strong>Refresh Token:</strong>
+    <strong class="par">Refresh Token:</strong>
     {{ currentUser.refreshToken}}
   </p>
   <p>
-    <strong>Email:</strong>
+    <strong class="par">Email:</strong>
     {{ currentUser.email }}
   </p>
-  <strong>Roles:</strong>
+  <strong class="par">Roles:</strong>
   <ul>
     <li *ngFor="let role of currentUser.roles">
       {{ role }}

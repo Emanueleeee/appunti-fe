@@ -3,7 +3,7 @@
 }
 
 .par{
-    background-image: url(https://www.webtools.services/paper-template/assets/img/printable-7_1mm-blue-line-ruled-paper-with-horizontal-and-vertical-margins-1000.png);
+    background-image: url();
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100vh;
@@ -17,3 +17,18 @@
     font-size: large;
     font-weight: bold;
 }
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
