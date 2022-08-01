@@ -1,0 +1,17 @@
+.centered{
+    text-align: center;
+}
+
+.par{
+    background-image: url(https://www.webtools.services/paper-template/assets/img/printable-7_1mm-blue-line-ruled-paper-with-horizontal-and-vertical-margins-1000.png);
+
+}
+
+.font{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.title{
+    font-size: large;
+    font-weight: bold;
+}

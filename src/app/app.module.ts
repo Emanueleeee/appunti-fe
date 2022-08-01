@@ -34,6 +34,8 @@ import { AppuntiComponent } from './appunti/appunti.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+
+    
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
