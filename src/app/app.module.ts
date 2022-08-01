@@ -16,6 +16,8 @@ import { BoardUserComponent } from './board-user/board-user.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { AppuntiComponent } from './appunti/appunti.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,10 @@ import { AppuntiComponent } from './appunti/appunti.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path:'appunti',component:AppuntiComponent}
+    ])
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

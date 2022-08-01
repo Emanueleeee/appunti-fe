@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-
+import { AppuntiService } from '../_services/appunti.service';
+import { Appunti } from '../model/Appunti';
 
 @Injectable({
     providedIn: 'root'
@@ -7,6 +8,9 @@ import { Injectable } from "@angular/core";
 export class RepoAppunti {
 
 
-    constructor(
-    ){}
+    constructor(public appuntiService: AppuntiService){}
+
+    nuovoAppunto(appunto:Appunti){
+        return this.appuntiService.nuovoAppunto(appunto);
+    }
 }

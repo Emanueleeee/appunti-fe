@@ -5,14 +5,15 @@ import { Tag } from "./Tag";
 export class Appunti extends BaseEntity {
     constructor(
       baseEntity:BaseEntity,
+      public id:number,
       public titolo:String,
       public sottotitolo:String,
       public testo:String,
-      public User:User,
+      public user:User,
       public tags:Tag[]
 
     ){
-        super(baseEntity.id,baseEntity.dataCreazione,baseEntity.dataModifica,baseEntity.utenteCreazione,baseEntity.utenteModifica);
+        super(baseEntity.dataCreazione,baseEntity.dataModifica,baseEntity.utenteCreazione,baseEntity.utenteModifica);
     }
   
     }
