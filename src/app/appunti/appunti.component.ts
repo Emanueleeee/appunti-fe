@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Appunti } from '../model/Appunti';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { RepoAppunti } from '../repositories/RepoAppunti';
@@ -8,6 +9,10 @@ import { User } from '../model/User';
 import { ERole } from '../model/ERole';
 import { Role } from '../model/Role';
 import { Router } from '@angular/router';
+=======
+import { RepoAppunti } from 'src/app/repositories/RepoAppunti';
+import { Appunti } from 'src/app/model/Appunti';
+
 
 @Component({
   selector: 'app-appunti',
@@ -16,11 +21,13 @@ import { Router } from '@angular/router';
 })
 export class AppuntiComponent implements OnInit {
 
+
   tags:Tag[]=[];
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
   appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), this.tags);
 
   constructor(private user: TokenStorageService, public repoAppunti:RepoAppunti, public router:Router) { }
+
 
   ngOnInit(): void {
   }

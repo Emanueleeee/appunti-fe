@@ -19,6 +19,7 @@ import { AppuntiComponent } from './appunti/appunti.component';
 import { RouterModule } from '@angular/router';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,10 +38,14 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
+
       {path:'appunti',component:AppuntiComponent},
       {path:'boardUser',component:BoardUserComponent}
+      {path: 'listaAppunti', component:AppuntiComponent},
+      
     ])
   ],
+  
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
