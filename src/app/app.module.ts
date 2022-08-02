@@ -42,6 +42,7 @@ import { CongratulazioniComponent } from './congratulazioni/congratulazioni.comp
     RouterModule.forRoot([
 
       {path:'appunti',component:AppuntiComponent},
+      {path: 'appunti/:cod', component:AppuntiComponent},
       {path:'boardUser',component:BoardUserComponent},
       {path: 'listaAppunti', component:AppuntiComponent},
       {path: 'Congratulazioni', component:CongratulazioniComponent}

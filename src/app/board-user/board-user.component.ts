@@ -47,7 +47,10 @@ export class BoardUserComponent implements OnInit {
     this.repoAppunti.cancellaAppunti(this.appunto).subscribe(x=>{this.appunti=x});
     
     }
-
+modifica(id:number){
+  this.appunto.id=id
+  this.router.navigate(['/appunti', id])
+}
   aggiungiAppunto(){
     this.router.navigate(['/appunti']);
   }
