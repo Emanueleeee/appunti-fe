@@ -13,10 +13,10 @@
         <th>Titolo</th>
         <th>Sottotitolo</th>
         <th>Link al Testo</th>
-        <th>Utente_Modifica</th>
-        <th>Data Creazione</th>
-        <th>Data Ultima Modifica</th>
         <th>Utente_Creazione</th>
+        <th>Data Creazione</th>
+        <th>Utente_Modifica</th>
+        <th>Data Ultima Modifica</th>
       </tr>
         <td>
           {{x.titolo}}
@@ -29,6 +29,12 @@
         </td>
         <td>
           {{x.user.username}}
+        </td>
+        <td>
+          {{x.dataCreazione}}
+        </td>
+        <td>
+          <button (click)="cancellaAppunti(x.id)"  class="btn btn-secondary btn-lg">Cancella</button>
         </td>
      </table>
 </table>

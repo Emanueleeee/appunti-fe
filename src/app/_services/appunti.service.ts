@@ -26,4 +26,7 @@ export class AppuntiService {
   listaAppunti():Observable<Appunti[]>{
     return this.http.get<Appunti[]>(this.url+'/listaAppunti')
 }
+cancellaAppunti(appunto:Appunti):Observable<Appunti[]>{
+  return this.http.post<Appunti[]>(this.url+'/cancellaAppunti',appunto)
+}
 }

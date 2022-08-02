@@ -17,6 +17,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { AppuntiComponent } from './appunti/appunti.component';
 import { RouterModule } from '@angular/router';
+import { CongratulazioniComponent } from './congratulazioni/congratulazioni.component';
 
 
 
@@ -30,7 +31,8 @@ import { RouterModule } from '@angular/router';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
-    AppuntiComponent
+    AppuntiComponent,
+    CongratulazioniComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import { RouterModule } from '@angular/router';
       {path:'appunti',component:AppuntiComponent},
       {path:'boardUser',component:BoardUserComponent},
       {path: 'listaAppunti', component:AppuntiComponent},
+      {path: 'Congratulazioni', component:CongratulazioniComponent}
       
     ])
   ],
