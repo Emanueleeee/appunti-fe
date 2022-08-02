@@ -37,6 +37,8 @@ export class RepoAppunti {
     }
     listaAppunti():Observable<Appunti[]>{
     return this.serviceAppunti.listaAppunti();
-
+    }
+    cancellaAppunti(appunto:Appunti){
+      return this.serviceAppunti.cancellaAppunti(appunto);
     }
 }
