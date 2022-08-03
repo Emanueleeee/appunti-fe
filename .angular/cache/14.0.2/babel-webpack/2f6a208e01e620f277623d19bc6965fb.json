@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class BaseEntity {\n  constructor(dataCreazione, dataModifica, utenteCreazione, utenteModifica) {\n    this.dataCreazione = dataCreazione;\n    this.dataModifica = dataModifica;\n    this.utenteCreazione = utenteCreazione;\n    this.utenteModifica = utenteModifica;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

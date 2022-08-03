@@ -1,14 +1,17 @@
-<div class="container background" *ngIf="currentUser; else loggedOut">
-  <header class="jumbotron">
+<div class="container background bg" *ngIf="currentUser; else loggedOut">
+  
+  <header class="banner">
     <h3>
-      <strong>{{ currentUser.username }}</strong> Profile
+      
+      <h1 class="display-4">{{ currentUser.username }}</h1>
     </h3>
   </header>
-  <p>
-    <strong class="par">Token:</strong>
+  <br>
+  <p class="wrap">
+    <strong class="par ">Token:</strong>
     {{ currentUser.accessToken}}
   </p>
-  <p>
+  <p class="wrap">
     <strong class="par">Refresh Token:</strong>
     {{ currentUser.refreshToken}}
   </p>
@@ -18,7 +21,7 @@
   </p>
   <strong class="par">Roles:</strong>
   <ul>
-    <li *ngFor="let role of currentUser.roles">
+    <li  style="color: red;" *ngFor="let role of currentUser.roles">
       {{ role }}
     </li>
   </ul>
