@@ -7,13 +7,14 @@
 <p class="par"></p>
 
 
-<table>
+<table class="table table-striped ">
      <table *ngFor="let x of appunti">
       <tr>
         <th>Titolo</th>
         <th>Sottotitolo</th>
         <th>Link al Testo</th>
         <th>Utente_Modifica</th>
+        
         <th>Data Creazione</th>
         <th>Data Ultima Modifica</th>
         <th>Utente_Creazione</th>
@@ -33,5 +34,5 @@
      </table>
 </table>
 
-  <button (click)="aggiungiAppunto()" routerLink="/appunti" class="btn btn-secondary btn-lg">Crea Appunto</button>
+  <button (click)="aggiungiAppunto()" routerLink="/appunti" class="fill btn-success">Crea Appunto</button>
 </div>

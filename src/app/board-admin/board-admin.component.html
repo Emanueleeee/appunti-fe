@@ -1,5 +1,6 @@
-<style>
-  th {
+ <!-- <style>
+
+ th {
        
         text-align: center;
         font-weight: bold;
@@ -55,28 +56,31 @@
   }
   li{
     text-align: start;
-  }
-</style>
-<div class="container">
+  } 
+</style> -->
+<div class="container ">
   <header class="jumbotron">
-    <p>{{ content }}</p>
+    <h1 class="display-4">{{ content }}</h1>
+    <p class="lead">Pagina dove si possono vedere gli appunti di tutti - Admin </p>
   </header>
 </div>
-<div *ngIf="arrAppunti.length>0">
+<div class="bg" *ngIf="arrAppunti.length>0">
   <br>
-  <br>
-  <p class="login-paragraph"> Lista appunti</p>
-  <table>
+  <p class="login-paragraph centered font-title"> Lista degli appunti</p>
+  <table style="border:thin solid black;margin-left:auto;margin-right:auto;" class="styled-table font-table table-striped table-dark">
+    <thead class="thead-dark">
     <tr>
       <th>Titolo</th>
       <th>Sottotitolo</th>
       <th>Utente</th>
   </tr>
-      <tr *ngFor="let x of arrAppunti">
+  </thead>
+      <tr  *ngFor="let x of arrAppunti">
         <td>{{x.titolo}}</td> 
         <td>{{x.sottotitolo}}</td> 
         <td>{{x.user.username}}</td> 
       </tr>
 
   </table>
+  <br>
 </div>
