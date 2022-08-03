@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../_services/user.service';
 
-import { Appunti    } from 'src/app/model/appunti';
+import { Appunti    } from 'src/app/model/Appunti';
 import { User } from '../model/User';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { RepoAppunti } from '../repositories/RepoAppunti';

@@ -7,6 +7,7 @@ import { Tag } from '../model/Tag';
 import { BaseEntity } from '../model/BaseEntity';
 import { User } from '../model/User';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RepoTag } from '../repositories/RepoTag';
 
 
 
@@ -17,15 +18,18 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./appunti.component.css']
 })
 export class AppuntiComponent implements OnInit {
-idAppunto:number=0
-
-  tags:Tag[]=[];
+  nTag:number = 1
+  idAppunto:number=0
+  listaTags:Tag[]=[]
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
-  appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), this.tags);
+  appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), this.listaTags);
+  statoApp:boolean=false;
 
-  constructor(private user: TokenStorageService, public repoAppunti:RepoAppunti, public router:Router, public route:ActivatedRoute) { }
+  constructor(private user: TokenStorageService, public repoAppunti:RepoAppunti, public router:Router, public route:ActivatedRoute, public repoTag:RepoTag) { }
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => { this.idAppunto= + (params.get('cod') + '') })
+    this.appunto.listaTag.push(new Tag(null,""))
+   
   }
 
   aggiungiAppunto(){
@@ -33,6 +37,7 @@ idAppunto:number=0
     this.appunto.user.roles = this.user.getUser().role;
     this.appunto.id=this.idAppunto
     this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
+    this.statoApp=true;
     this.router.navigate(['/Congratulazioni']);
   }
   cancellaAppunti(){
