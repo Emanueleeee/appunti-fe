@@ -10,7 +10,7 @@ export class Appunti extends BaseEntity {
       public sottotitolo:String,
       public testo:String,
       public user:User,
-      public tags:Tag[]
+      public listaTag:Tag[]
 
     ){
         super(baseEntity.dataCreazione,baseEntity.dataModifica,baseEntity.utenteCreazione,baseEntity.utenteModifica);

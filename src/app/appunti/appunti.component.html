@@ -22,7 +22,14 @@
             </td>
             
         </tr>
-  
+        <div name="form" *ngFor="let x of appunto.listaTag">
+            <table>
+              <tr>
+                <td>Nome</td>
+                <td><input type="text" [(ngModel)]="x.name"></td>
+              </tr>
+            </table>
+        </div>
         <tr>
             <td>
                 <button (click)="aggiungiAppunto()" class="btn btn-secondary btn-lg">Aggiungi</button>

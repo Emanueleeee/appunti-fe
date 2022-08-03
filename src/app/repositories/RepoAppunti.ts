@@ -2,8 +2,7 @@ import { Injectable } from "@angular/core";
 
 import { Router } from "@angular/router";
 import { AppuntiService } from "src/app/_services/appunti.service";
-import { Appunti    } from 'src/app/model/appunti';
-import { User       } from 'src/app/model/User';
+import { Appunti    } from 'src/app/model/Appunti';
 import { Observable } from "rxjs";
 
 
