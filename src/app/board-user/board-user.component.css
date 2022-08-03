@@ -20,6 +20,7 @@
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
+    background-color: #ffffff;
     width: 100%;
   }
   
@@ -32,4 +33,13 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+  
+
+  .bg{
+    background-image: url(https://wallpaperaccess.com/full/1576401.jpg);
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+  }
+
   
