@@ -16,11 +16,10 @@ export class TokenStorageService {
     window.sessionStorage.clear();
   }
 
-  public saveToken(token: string, refreshToken:string): void {
+  public saveToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
     window.sessionStorage.removeItem(RTOKEN_KEY);
-    window.sessionStorage.setItem(RTOKEN_KEY, refreshToken);
   }
 
   public getToken(): string {
