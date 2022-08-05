@@ -28,7 +28,7 @@ export class AppuntiComponent implements OnInit {
   constructor(private user: TokenStorageService, public repoAppunti:RepoAppunti, public router:Router, public route:ActivatedRoute, public repoTag:RepoTag) { }
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => { this.idAppunto= + (params.get('cod') + '') })
-    this.appunto.listaTag.push(new Tag(null,""))
+    this.appunto.listaTag.push(new Tag(0,""))
    
   }
 

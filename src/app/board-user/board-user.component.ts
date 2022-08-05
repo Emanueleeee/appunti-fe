@@ -22,7 +22,7 @@ export class BoardUserComponent implements OnInit {
   tags:Tag[]=[];
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
    appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), this.tags);
-  content: string;
+  content: string="";
 
   constructor(
     private userService: UserService,
