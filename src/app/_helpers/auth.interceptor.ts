@@ -15,7 +15,7 @@ export class AuthInterceptor implements HttpInterceptor {
   private isRefreshing = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   constructor(private tokenService: TokenStorageService, private authService: AuthService) { }
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<Object>> {
     let authReq = req;
     const token = this.tokenService.getToken();
     if (token != null) {
@@ -45,7 +45,7 @@ export class AuthInterceptor implements HttpInterceptor {
           catchError((err) => {
             this.isRefreshing = false;
             
-            this.tokenService.signOut();
+            this.tokenService.signOut
             return throwError(err);
           })
         );

@@ -24,8 +24,8 @@ export class TokenStorageService {
     window.sessionStorage.removeItem(REFRESHTOKEN_KEY);
     window.sessionStorage.setItem(REFRESHTOKEN_KEY, token);
   }
-  public getRefreshToken(): string | null {
-    return window.sessionStorage.getItem(REFRESHTOKEN_KEY);
+  public getRefreshToken(): string {
+    return window.sessionStorage.getItem(REFRESHTOKEN_KEY)!;
   }
   public getToken(): string {
     return sessionStorage.getItem(TOKEN_KEY)!;
@@ -37,6 +37,11 @@ export class TokenStorageService {
   }
 
   public getUser(): any {
-    return JSON.parse(sessionStorage.getItem(USER_KEY)!);
+    const user = window.sessionStorage.getItem(USER_KEY);
+    if (user) {
+      return JSON.parse(user);
+    }
+    return {};
   }
 }
+
