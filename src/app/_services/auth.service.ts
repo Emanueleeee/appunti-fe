@@ -22,7 +22,11 @@ export class AuthService {
       password: user.password
     }, httpOptions);
   }
-
+  refreshToken(token: string) {
+    return this.http.post(AUTH_API + 'refreshtoken', {
+      refreshToken: token
+    }, httpOptions);
+  }
   register(user:User): Observable<any> {
     return this.http.post(AUTH_API + 'registrazione', {
       username: user.username,
