@@ -1,4 +1,7 @@
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Tag } from "../model/Tag";
+import { AppuntiService } from "../_services/appunti.service";
 
 
 @Injectable({
@@ -6,6 +9,9 @@ import { Injectable } from "@angular/core";
   })
 export class RepoTag {
 
-
-    constructor(){}
+    constructor(public appuntiService: AppuntiService){}
+    
+    findByName(nameTag:string):Observable<Tag>{
+      return this.appuntiService.findByName(nameTag);
+    }
 }

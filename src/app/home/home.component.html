@@ -9,4 +9,41 @@
  <!-- <button class="fill" type="button">test </button> -->
 </div>
 
+<div>
+<button (click)="appuntoXId()"  class="btn btn-secondary btn-lg">Lista Appunti pubblica</button>
+<table class="table table-striped">
+     <table *ngFor="let x of lisAppPub">
+      <tr>
+        <th>Titolo</th>
+        <th>Sottotitolo</th>
+        <th>Link al Testo</th>
+        <th>Utente_Creazione</th>
+        <th>Data Creazione</th>
+        <th>Tag</th>
+      </tr>
+        <td>
+          {{x.titolo}}
+        </td>
+        <td>
+          {{x.sottotitolo}}
+        </td>
+        <td>
+          {{x.testo}}
+        </td>
+        <td>
+          {{x.user.username}}
+        </td>
+        <td>
+          {{x.dataCreazione}}
+        </td>
+        <td *ngFor="let y of x.listaTag">
+          <mat-chip-list aria-label="Fish selection">
+            <mat-chip color="primary" selected>
+                {{y.name}}
+            </mat-chip>
+          </mat-chip-list>
+     </table>
+</table>
+</div>
+
 

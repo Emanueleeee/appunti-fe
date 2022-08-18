@@ -19,21 +19,32 @@
             <th>Testo</th>
             <td width="25%">
                 <input [(ngModel)]="appunto.testo">
-            </td>
-            
+            </td>           
         </tr>
-        <div name="form" *ngFor="let x of appunto.listaTag">
+        <div>
+            <th>Tag</th>
             <table>
-              <tr>
-                <td>Nome</td>
-                <td><input type="text" [(ngModel)]="x.name"></td>
-              </tr>
+                <mat-chip-list #chipList aria-label="Tag">
+                    <mat-chip *ngFor="let tag of listaTags" (removed)="rimuovi(tag)">
+                        <div *ngIf="tag.name.length > 0">
+                            {{tag.name}}
+                        </div>
+                      <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+                    <input placeholder="New tag..."
+                           [matChipInputFor]="chipList"
+                           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                           [matChipInputAddOnBlur]="addOnBlur"
+                           (matChipInputTokenEnd)="add($event)">
+                           <button>Aggiungi tag</button>
+                  </mat-chip-list>
             </table>
         </div>
-        <tr>
-            <td>
-                <button (click)="aggiungiAppunto()" class="btn btn-secondary btn-lg">Aggiungi</button>
-            </td>
-        </tr>
     </table>
+    <br><br><br><br><br>
+
+    <button (click)="aggiungiAppunto()" class="btn btn-secondary btn-lg">Aggiungi Appunto</button>
+
 </div>
