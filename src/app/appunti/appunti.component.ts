@@ -42,6 +42,7 @@ export class AppuntiComponent implements OnInit {
     this.appunto.id=this.idAppunto
     this.appunto.listaTag = this.listaTags
     this.appunto.pub=false;
+    this.appunto.utenteCreazione=this.appunto.user.username;
     this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
     this.statoApp=true;
     this.router.navigate(['/Congratulazioni']);

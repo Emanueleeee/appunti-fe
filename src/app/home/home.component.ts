@@ -35,5 +35,5 @@ export class HomeComponent implements OnInit {
     );
     this.repoAppunti.listaAppuntiPub(this.pub).subscribe(x=>{this.lisAppPub=x});
   }
-
+  
 }

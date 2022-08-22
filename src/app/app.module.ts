@@ -39,7 +39,7 @@ import { MatButtonModule } from "@angular/material/button";
     HttpClientModule,
     RouterModule.forRoot([
       {path:'appunti',component:AppuntiComponent},
-      {path:'home/:cod',component:HomeComponent},
+      {path:'home',component:HomeComponent},
       {path: 'appunti/:cod', component:AppuntiComponent},
       {path:'boardUser',component:BoardUserComponent},
       {path: 'listaAppunti', component:AppuntiComponent},
