@@ -10,6 +10,7 @@ export class Appunti extends BaseEntity {
       public sottotitolo:String,
       public testo:String,
       public user:User,
+      public pub:boolean,
       public listaTag:Tag[]
 
     ){
