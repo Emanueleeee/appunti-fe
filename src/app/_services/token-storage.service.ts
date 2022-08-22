@@ -31,9 +31,6 @@ export class TokenStorageService {
     return sessionStorage.getItem(TOKEN_KEY)!;
   }
 
-  public getRefreshToken(): string | null{
-    return window.sessionStorage.getItem(REFRESHTOKEN_KEY);
-  }
   //Utente tramite token
   public saveUser(user:User): void {
     window.sessionStorage.removeItem(USER_KEY);
