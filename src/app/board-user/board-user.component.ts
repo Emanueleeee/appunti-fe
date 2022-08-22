@@ -25,7 +25,7 @@ export class BoardUserComponent implements OnInit {
   user:User= this.token.getUser()
   tags:Tag[]=[];
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
-  appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), this.tags);
+  appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""),false, this.tags);
   content: string="";
 
   nomeTag!:string
@@ -58,7 +58,7 @@ export class BoardUserComponent implements OnInit {
       }),
       this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.appunti=x})
       this.lapp = false;
-      this.listaAppuntiPub.push(new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), this.tags));
+      this.listaAppuntiPub.push(new Appunti(this.baseEntity,0,"","","",new User(0,"","",""),false, this.tags));
       
   }
   cancellaAppunti(id:number){
@@ -90,6 +90,8 @@ export class BoardUserComponent implements OnInit {
 
   pubblica(x:Appunti){
     //this.router.navigate(['/home', id]);
+      x.pub=true;
+      this.repoAppunti.nuovoAppunto(x).subscribe();
       this.listaAppuntiPub.push(x)
     }
 

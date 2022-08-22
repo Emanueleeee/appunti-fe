@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   lisAppPub:Appunti[]=[];
   listaTags:Tag[]=[]
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
-  appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), this.listaTags);
+  appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""),false, this.listaTags);
 
   constructor(private userService: UserService, public route:ActivatedRoute, public repoAppunti:RepoAppunti) { }
 

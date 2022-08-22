@@ -24,7 +24,7 @@ export class AppuntiComponent implements OnInit {
   lt:Tag[]=[];
   listaTags:Tag[]=[]
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
-  appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), this.listaTags);
+  appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), false, this.listaTags);
   statoApp:boolean=false;
 
   //variabili per le chips dei tag
@@ -41,6 +41,7 @@ export class AppuntiComponent implements OnInit {
     this.appunto.user.roles = this.user.getUser().role;
     this.appunto.id=this.idAppunto
     this.appunto.listaTag = this.listaTags
+    this.appunto.pub=false;
     this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
     this.statoApp=true;
     this.router.navigate(['/Congratulazioni']);
