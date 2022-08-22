@@ -29,8 +29,8 @@ export class AppuntiService {
   cancellaAppunti(appunto:Appunti):Observable<Appunti[]>{
     return this.http.post<Appunti[]>(this.url+'/cancellaAppunti',appunto);
   }
-  appuntoXId(id:number):Observable<Appunti>{
-    return this.http.post<Appunti>(this.url+'/appuntoXId', id);
+  listaAppuntiPub(pub:boolean):Observable<Appunti[]>{
+    return this.http.post<Appunti[]>(this.url+'/listaAppuntiPub', pub);
   }
   
   //Metodi Tag

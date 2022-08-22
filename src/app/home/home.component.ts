@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   listaTags:Tag[]=[]
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
   appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""),false, this.listaTags);
+  pub:boolean=true;
 
   constructor(private userService: UserService, public route:ActivatedRoute, public repoAppunti:RepoAppunti) { }
 
@@ -32,23 +33,7 @@ export class HomeComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     );
-    this.route.paramMap.subscribe((params) => { this.idAppunto= + (params.get('cod') + '') })
+    this.repoAppunti.listaAppuntiPub(this.pub).subscribe(x=>{this.lisAppPub=x});
   }
 
-  appuntoXId(){
-      this.repoAppunti.appuntoXId(this.idAppunto).subscribe(app =>{
-        if(this.lisAppPub.length <= 0 && app != null){
-          this.lisAppPub.push(app);
-        }else{
-          this.lisAppPub.forEach(x => {
-            if(x.id != app.id){
-              return this.lisAppPub.push(app);
-            }else{
-              return this.lisAppPub;
-            }
-          });
-        }
-      });
-      return this.lisAppPub;
-  }
 }
