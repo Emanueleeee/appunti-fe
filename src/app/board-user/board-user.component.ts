@@ -8,8 +8,10 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { RepoAppunti } from '../repositories/RepoAppunti';
 import { Tag } from '../model/Tag';
 import { BaseEntity } from '../model/BaseEntity';
-import { EventBusService } from '../_services/event-bus.service';
-import { EventData } from '../_services/event.class';
+
+import { EventBusService } from '../_shares/event-bus.service';
+import { EventData } from '../_shares/EventData';
+
 
 
 
@@ -37,8 +39,9 @@ export class BoardUserComponent implements OnInit {
     private userService: UserService,
     public repoAppunti:RepoAppunti,
     public token:TokenStorageService,
-    public router:Router,
-    private eventBusService:EventBusService) { }
+
+   public router:Router,
+   public eventBusService:EventBusService) { }
 
   ngOnInit(): void {
     this.userService.getUserBoard().subscribe(
@@ -46,9 +49,11 @@ export class BoardUserComponent implements OnInit {
         this.content = data;
       },
       err => {
-        //this.content = JSON.parse(err.error).message;
+
+        this.content = JSON.parse(err.error).message;
         this.content = err.error.message || err.error || err.message;
-        if(err.status == 403)
+        if (err.status === 403)
+
           this.eventBusService.emit(new EventData('logout', null));
       }),
       this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.appunti=x})
