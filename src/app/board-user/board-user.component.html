@@ -6,7 +6,62 @@
 <div class="centered par font title">
 <p class="par"></p>
 
+<table>
+  <td>
+    Nome tag
+  </td>
+  <td>
+    <input [(ngModel)]="nomeTag">
+    <button (click)="listaAppuntiXTag()" class="fill btn-success">Cerca appunti per tag</button>
+  </td>
+</table>
 
+<div *ngIf="lapp==true">
+  <table *ngFor="let x of listaAppunti">
+    <tr>
+      <th>Titolo</th>
+      <th>Sottotitolo</th>
+      <th>Link al Testo</th>
+      <th>Utente_Creazione</th>
+      <th>Data Creazione</th>
+      <th>Tag</th>
+      <th>Cancella</th>
+      <th>Modifica</th>
+    </tr>
+      <td>
+        {{x.titolo}}
+      </td>
+      <td>
+        {{x.sottotitolo}}
+      </td>
+      <td>
+        {{x.testo}}
+      </td>
+      <td>
+        {{x.user.username}}
+      </td>
+      <td>
+        {{x.dataCreazione}}
+      </td>
+      <td *ngFor="let y of x.listaTag">
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip color="primary" selected>
+              {{y.name}}
+          </mat-chip>
+        </mat-chip-list>
+      </td>
+      <td>
+        <button (click)="cancellaAppunti(x.id)"  class="btn btn-secondary btn-lg">Cancella</button>
+      </td>
+      <td>
+        <button (click)="modifica(x.id)"  class="btn btn-secondary btn-lg">Modifica</button>
+      </td>
+  </table>
+</div>
+
+<br>
+
+<p>Lista Appunti</p>
 <table class="table table-striped ">
      <table *ngFor="let x of appunti">
       <tr>
@@ -15,8 +70,7 @@
         <th>Link al Testo</th>
         <th>Utente_Creazione</th>
         <th>Data Creazione</th>
-        <th>Utente_Modifica</th>
-        <th>Data Ultima Modifica</th>
+        <th>Tag</th>
       </tr>
         <td>
           {{x.titolo}}
@@ -33,14 +87,74 @@
         <td>
           {{x.dataCreazione}}
         </td>
+        <td *ngFor="let y of x.listaTag">
+          <mat-chip-list aria-label="Fish selection">
+            <mat-chip color="primary" selected>
+                {{y.name}}
+            </mat-chip>
+          </mat-chip-list>
+        </td>
         <td>
           <button (click)="cancellaAppunti(x.id)"  class="btn btn-secondary btn-lg">Cancella</button>
         </td>
         <td>
           <button (click)="modifica(x.id)"  class="btn btn-secondary btn-lg">Modifica</button>
         </td>
+        <td>
+          <button (click)="pubblica(x)"  class="btn btn-secondary btn-lg">Pubblica</button>
+        </td>
      </table>
 </table>
 
-  <button (click)="aggiungiAppunto()" routerLink="/appunti" class="fill btn-success">Crea Appunto</button>
-</div>
+
+<br>
+<br>
+<button (click)="aggiungiAppunto()" routerLink="/appunti" class="btn btn-secondary btn-lg">Crea Appunto</button>
+
+<br>
+<br>
+<br>
+<br>
+<p>Lista Appunti Pubblica</p>
+<table *ngFor="let x of listaAppuntiPub">
+  <div *ngIf="x.id != 0">
+  <tr>
+    <th>Titolo</th>
+    <th>Sottotitolo</th>
+    <th>Link al Testo</th>
+    <th>Utente_Creazione</th>
+    <th>Data Creazione</th>
+    <th>Tag</th>
+    <th>Cancella</th>
+    <th>Modifica</th>
+  </tr>
+    <td>
+      {{x.titolo}}
+    </td>
+    <td>
+      {{x.sottotitolo}}
+    </td>
+    <td>
+      {{x.testo}}
+    </td>
+    <td>
+      {{x.user.username}}
+    </td>
+    <td>
+      {{x.dataCreazione}}
+    </td>
+    <td *ngFor="let y of x.listaTag">
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="primary" selected>
+            {{y.name}}
+        </mat-chip>
+      </mat-chip-list>
+    </td>
+    <td>
+      <button (click)="cancellaAppunti(x.id)"  class="btn btn-secondary btn-lg">Cancella</button>
+    </td>
+    <td>
+      <button (click)="modifica(x.id)"  class="btn btn-secondary btn-lg">Modifica</button>
+    </td>
+  </div>
+</table>

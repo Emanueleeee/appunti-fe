@@ -15,7 +15,7 @@ export class TokenStorageService {
   signOut(): void {
     window.sessionStorage.clear();
   }
-
+  //Access Token
   public saveToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
@@ -31,6 +31,10 @@ export class TokenStorageService {
     return sessionStorage.getItem(TOKEN_KEY)!;
   }
 
+  public getRefreshToken(): string | null{
+    return window.sessionStorage.getItem(REFRESHTOKEN_KEY);
+  }
+  //Utente tramite token
   public saveUser(user:User): void {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));

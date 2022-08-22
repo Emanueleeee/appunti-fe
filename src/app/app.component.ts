@@ -30,16 +30,21 @@ export class AppComponent implements OnInit {
 
       this.username = user.username;
     }
+
     this.eventBusSub = this.eventBusService.on('logout', () => {
       this.logout();
     });
   }
   ngOnDestroy(): void {
     if (this.eventBusSub)
+
       this.eventBusSub.unsubscribe();
   }
   logout(): void {
     this.tokenStorageService.signOut();
-    window.location.reload();
+    //window.location.reload();
+    this.isLoggedIn = false;
+    this.roles = [];
+    this.showAdminBoard = false;
   }
 }

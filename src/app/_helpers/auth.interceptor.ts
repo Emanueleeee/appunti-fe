@@ -3,22 +3,27 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 
 import { TokenStorageService } from '../_services/token-storage.service';
-import { BehaviorSubject, catchError, filter, Observable, throwError } from 'rxjs';
+
+import { BehaviorSubject, catchError, filter, Observable, switchMap, take, throwError } from 'rxjs';
 import { AuthService } from '../_services/auth.service';
-import { switchMap ,take} from 'rxjs/operators';
+
 
 const TOKEN_HEADER_KEY = 'Authorization';       // for Spring Boot back-end
 // const TOKEN_HEADER_KEY = 'x-access-token';   // for Node.js Express back-end
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  private isRefreshing = false;
-  private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+
+private isRefreshing = false;
+private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+
   constructor(private tokenService: TokenStorageService, private authService: AuthService) { }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<Object>> {
     let authReq = req;
     const token = this.tokenService.getToken();
     if (token != null) {
+
       authReq = this.addTokenHeader(req, token);
     }
     return next.handle(authReq).pipe(catchError(error => {
@@ -56,10 +61,11 @@ export class AuthInterceptor implements HttpInterceptor {
       switchMap((token) => next.handle(this.addTokenHeader(request, token)))
     );
   }
+
   private addTokenHeader(request: HttpRequest<any>, token: string) {
     /* for Spring Boot back-end */
      return request.clone({ headers: request.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
-   
+  
   }
 }
 export const authInterceptorProviders = [

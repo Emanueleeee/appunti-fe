@@ -40,4 +40,7 @@ export class RepoAppunti {
     cancellaAppunti(appunto:Appunti){
       return this.serviceAppunti.cancellaAppunti(appunto);
     }
+    appuntoXId(id:number){
+      return this.serviceAppunti.appuntoXId(id);
+    }
 }

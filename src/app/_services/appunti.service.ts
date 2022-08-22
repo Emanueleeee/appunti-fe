@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Appunti    } from 'src/app/model/Appunti';
+import { Tag } from '../model/Tag';
 
 
 @Injectable({
@@ -24,8 +25,16 @@ export class AppuntiService {
   }
   listaAppunti():Observable<Appunti[]>{
     return this.http.get<Appunti[]>(this.url+'/listaAppunti')
-}
-cancellaAppunti(appunto:Appunti):Observable<Appunti[]>{
-  return this.http.post<Appunti[]>(this.url+'/cancellaAppunti',appunto)
-}
+  }
+  cancellaAppunti(appunto:Appunti):Observable<Appunti[]>{
+    return this.http.post<Appunti[]>(this.url+'/cancellaAppunti',appunto);
+  }
+  appuntoXId(id:number):Observable<Appunti>{
+    return this.http.post<Appunti>(this.url+'/appuntoXId', id);
+  }
+  
+  //Metodi Tag
+  findByName(nameTag:string):Observable<Tag>{
+    return this.http.post<Tag>(this.url+'/cercaTag', nameTag);
+  }
 }
