@@ -29,7 +29,8 @@ import { MatChipsModule } from '@angular/material/chips';
     ProfileComponent,
     BoardAdminComponent,
     BoardUserComponent,
-    AppuntiComponent
+    AppuntiComponent,
+    TestoComponent
   ],
   imports: [
     BrowserModule,
