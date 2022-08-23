@@ -20,6 +20,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .button3 {
+  background-color: #008CBA;
+  color: white;
+  }
 </style>
 
 <div class="container ">
@@ -36,7 +40,7 @@
   </td>
   <td>
     <input [(ngModel)]="nomeTag">
-    <button (click)="listaAppuntiXTag()" class="fill btn-success">Cerca appunti per tag</button>
+    <button (click)="listaAppuntiXTag()" class="btn btn-secondary btn-lg button3">Cerca appunti per tag</button>
   </td>
 </table>
 
@@ -103,7 +107,8 @@
           {{x.sottotitolo}}
         </td>
         <td class="ellipsis">
-          <button (click)="linkTesto(x.id)"> <span>{{x.testo}}</span></button>
+          <span>{{x.testo}}</span><br>
+          <button (click)="linkTesto(x.id)" class="button2">Visualizza Testo</button>
         </td>
         <td>
           {{x.user.username}}
@@ -119,13 +124,13 @@
           </mat-chip-list>
         </td>
         <td>
-          <button (click)="cancellaAppunti(x.id)"  class="btn btn-secondary btn-lg">Cancella</button>
+          <button (click)="cancellaAppunti(x.id)"  class="btn btn-secondary btn-lg button3">Cancella</button>
         </td>
         <td>
-          <button (click)="modifica(x.id)"  class="btn btn-secondary btn-lg">Modifica</button>
+          <button (click)="modifica(x.id)"  class="btn btn-secondary btn-lg button3">Modifica</button>
         </td>
         <td>
-          <button (click)="pubblica(x)"  class="btn btn-secondary btn-lg">Pubblica</button>
+          <button (click)="pubblica(x)"  class="btn btn-secondary btn-lg button3">Pubblica</button>
         </td>
      </table>
 </table>
@@ -133,4 +138,4 @@
 
 <br>
 <br>
-<button (click)="aggiungiAppunto()" routerLink="/appunti" class="btn btn-secondary btn-lg">Crea Appunto</button>
+<button (click)="aggiungiAppunto()" routerLink="/appunti" class="btn btn-secondary btn-lg button3">Crea Appunto</button>

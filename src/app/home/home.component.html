@@ -1,3 +1,31 @@
+<style>
+  table {
+    width: 100%;
+  }
+  .first {
+    width: 50%;
+  }
+  .ellipsis {
+    position: relative;
+  }
+  .ellipsis:before {
+    content: '&nbsp;';
+    visibility: hidden;
+  }
+  .ellipsis span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .button3 {
+  background-color: #008CBA;
+  color: white;
+  }
+</style>
+
 <div class="container ">
   <header class="jumbotron">
     <img src="https://seeklogo.com/images/G/globe-logo-7DED53A9AA-seeklogo.com.png" class="rounded float-right" alt="..." width="150"  height="150" >
@@ -19,9 +47,9 @@
          <td>
            {{x.sottotitolo}}
          </td>
-         <td>
-           {{x.testo}}
-         </td>
+         <td class="ellipsis">
+          <span>{{x.testo}}</span>
+        </td>
          <td>
            {{x.user.username}}
          </td>
