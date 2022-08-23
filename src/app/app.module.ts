@@ -44,7 +44,8 @@ import { MatChipsModule } from '@angular/material/chips';
       {path: 'appunti/:cod', component:AppuntiComponent},
       {path:'boardUser',component:BoardUserComponent},
       {path: 'listaAppunti', component:AppuntiComponent},
-      {path: 'testo/:id', component:TestoComponent} 
+      {path: 'testo/:cod', component:TestoComponent} ,
+      {path: 'testo', component:TestoComponent} 
     ]),
     BrowserAnimationsModule,
     MatIconModule,

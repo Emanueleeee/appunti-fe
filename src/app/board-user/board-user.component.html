@@ -103,7 +103,7 @@
           {{x.sottotitolo}}
         </td>
         <td class="ellipsis">
-          <a href="/testo"><span>{{x.testo}}</span></a>
+          <button (click)="linkTesto(x.id)"> <span>{{x.testo}}</span></button>
         </td>
         <td>
           {{x.user.username}}

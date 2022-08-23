@@ -95,4 +95,8 @@ export class BoardUserComponent implements OnInit {
       this.listaAppuntiPub.push(x)
     }
 
+    linkTesto(id:number){
+      this.appunto.id=id
+      this.router.navigate(['/testo', id])
+      }
 }

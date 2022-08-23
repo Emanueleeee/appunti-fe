@@ -15,13 +15,17 @@ export class TestoComponent implements OnInit {
 
   idAppunto:number=0;
   listaTags:Tag[]=[]
+  testo:Boolean=false
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
   appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), false, this.listaTags);
 
   constructor(public route:ActivatedRoute, public repoAppunti:RepoAppunti) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => { this.idAppunto= + (params.get('id') + '') })
+    this.route.paramMap.subscribe((params) => { this.idAppunto= + (params.get('cod') + '') })
+    if(this.idAppunto!=0)
+    this.appuntoById()
+    else{}
   }
 
   appuntoById(){

@@ -45,7 +45,7 @@ export class AppuntiComponent implements OnInit {
     this.appunto.utenteCreazione=this.appunto.user.username;
     this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
     this.statoApp=true;
-    this.router.navigate(['/testo',this.appunto.id]);
+    this.router.navigate(['/testo']);
   }
   
   cancellaAppunti(){

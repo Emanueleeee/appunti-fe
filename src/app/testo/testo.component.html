@@ -6,8 +6,7 @@
 </style>
 
 
-<p>Crea Nuovo Appunto</p>
-<div>
+<div *ngIf="idAppunto!=0||appunto.id!=null">
     <table>
 
         <tr>
@@ -36,5 +35,8 @@
               </td>
         </div>
     </table>
-    <br><br><br><br><br>
+
+</div>
+<div *ngIf="appunto.id==null||appunto.id==0">
+    <p>TRIBECA</p>
 </div>
