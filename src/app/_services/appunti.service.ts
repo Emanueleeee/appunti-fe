@@ -32,6 +32,9 @@ export class AppuntiService {
   listaAppuntiPub(pub:boolean):Observable<Appunti[]>{
     return this.http.post<Appunti[]>(this.url+'/listaAppuntiPub', pub);
   }
+  appuntoById(id:number):Observable<Appunti>{
+    return this.http.post<Appunti>(this.url+'/appuntoById', id);
+  }
   
   //Metodi Tag
   findByName(nameTag:string):Observable<Tag>{

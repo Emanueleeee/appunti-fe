@@ -1,0 +1,40 @@
+<style>
+    textarea {
+        width: 400px;
+        height: 200px;
+    }
+</style>
+
+
+<p>Crea Nuovo Appunto</p>
+<div>
+    <table>
+
+        <tr>
+            <th >Titolo<br>
+                {{appunto.titolo}}
+            </th>
+        </tr>
+        <tr>
+            <th>Sottotitolo<br>
+                {{appunto.sottotitolo}}
+            </th>
+        </tr>
+        <tr>
+            <th>Testo<br>             
+                {{appunto.testo}}              
+            </th>           
+        </tr>
+        <div>
+            <th>Tag</th>
+            <td *ngFor="let y of appunto.listaTag">
+                <mat-chip-list aria-label="Fish selection">
+                  <mat-chip color="primary" selected>
+                      {{y.name}}
+                  </mat-chip>
+                </mat-chip-list>
+              </td>
+        </div>
+    </table>
+    <br><br><br><br><br>
+</div>

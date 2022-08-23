@@ -1,25 +1,29 @@
+<style>
+    textarea {
+        width: 400px;
+        height: 200px;
+    }
+</style>
+
 
 <p>Crea Nuovo Appunto</p>
 <div>
     <table>
 
         <tr>
-            <th >Titolo</th>
-            <td width="25%">
+            <th >Titolo<br>
                 <input [(ngModel)]="appunto.titolo">
-            </td>
+            </th>
         </tr>
         <tr>
-            <th>Sottotitolo</th>
-            <td width="25%">
+            <th>Sottotitolo<br>
                 <input [(ngModel)]="appunto.sottotitolo">
-            </td>
+            </th>
         </tr>
         <tr>
-            <th>Testo</th>
-            <td width="25%">
-                <input [(ngModel)]="appunto.testo">
-            </td>           
+            <th>Testo<br>             
+                <textarea [(ngModel)]="appunto.testo"></textarea>              
+            </th>           
         </tr>
         <div>
             <th>Tag</th>

@@ -1,3 +1,27 @@
+<style>
+  table {
+    width: 100%;
+  }
+  .first {
+    width: 50%;
+  }
+  .ellipsis {
+    position: relative;
+  }
+  .ellipsis:before {
+    content: '&nbsp;';
+    visibility: hidden;
+  }
+  .ellipsis span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+
 <div class="container ">
   <header class="jumbotron">
     <h1 class="display-4">{{ content }}</h1>
@@ -78,8 +102,8 @@
         <td>
           {{x.sottotitolo}}
         </td>
-        <td>
-          {{x.testo}}
+        <td class="ellipsis">
+          <a href="/testo"><span>{{x.testo}}</span></a>
         </td>
         <td>
           {{x.user.username}}

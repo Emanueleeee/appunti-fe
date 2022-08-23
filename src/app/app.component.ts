@@ -9,6 +9,7 @@ import { EventBusService } from './_shares/event-bus.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  [x: string]: any;
   private roles: string[]=[];
   isLoggedIn = false;
   showAdminBoard = false;
