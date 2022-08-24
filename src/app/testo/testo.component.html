@@ -24,16 +24,12 @@
                 <p> {{appunto.testo}}</p>                      
         </tr>
         <div>
-            <th>Tag</th>
             <table>
                 <mat-chip-list #chipList aria-label="Tag">
                     <mat-chip *ngFor="let tag of appunto.listaTag" >
                         <div *ngIf="tag.name.length > 0">
                             {{tag.name}}
                         </div>
-                      <button matChipRemove>
-                        <mat-icon>cancel</mat-icon>
-                      </button>
                     </mat-chip>
    
                   </mat-chip-list>
