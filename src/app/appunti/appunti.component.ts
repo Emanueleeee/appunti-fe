@@ -51,7 +51,7 @@ export class AppuntiComponent implements OnInit {
   
   cancellaAppunti(){
   this.repoAppunti.cancellaAppunti(this.appunto).subscribe();
-  this.router.navigate(['/boardUser']);
+  window.location.reload()
   }
 
   rimuovi(tag: Tag): void {
