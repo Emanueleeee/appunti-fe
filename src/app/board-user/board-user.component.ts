@@ -75,7 +75,7 @@ export class BoardUserComponent implements OnInit {
     this.appunto.id=id
     this.appunto.user.id=this.token.getUser().id
     this.repoAppunti.cancellaAppunti(this.appunto).subscribe(x=>{this.appunti=x});
-    
+    window.location.reload()
     }
   modifica(id:number){
   this.appunto.id=id
