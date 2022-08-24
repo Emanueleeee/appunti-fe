@@ -6,42 +6,40 @@
 </style>
 
 
-<div *ngIf="idAppunto!=0||appunto.id!=null">
+<<p style="font-family: monospace"></p>
+<div class=" div monospace">
+    
     <table>
+
         <tr>
-            <th>Titolo</th>
-            <td>
-                {{appunto.titolo}}
-            </td>
+                <h1>{{appunto.titolo}}</h1>
+                
         </tr>
-        <br>
         <tr>
-            <th>Sottotitolo</th>
-            <td>
-                {{appunto.sottotitolo}}
-            </td>
+
+                <h2>{{appunto.sottotitolo}}</h2>
         </tr>
-        <br>
         <tr>
-            <th>Testo</th>
-            <td>
-                {{appunto.testo}}
-            </td>           
+             
+                <p> {{appunto.testo}}</p>                      
         </tr>
-        <br>
         <div>
-            <th>Tag</th><br>
-            <td *ngFor="let y of appunto.listaTag">
-                <mat-chip-list aria-label="Fish selection">
-                  <mat-chip color="primary" selected>
-                      {{y.name}}
-                  </mat-chip>
-                </mat-chip-list>
-            </td>
+            <th>Tag</th>
+            <table>
+                <mat-chip-list #chipList aria-label="Tag">
+                    <mat-chip *ngFor="let tag of appunto.listaTag" >
+                        <div *ngIf="tag.name.length > 0">
+                            {{tag.name}}
+                        </div>
+                      <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+   
+                  </mat-chip-list>
+            </table>
         </div>
     </table>
+    <br><br><br><br><br>
 
-</div>
-<div *ngIf="appunto.id==null||appunto.id==0">
-    <p>TRIBECA</p>
 </div>
