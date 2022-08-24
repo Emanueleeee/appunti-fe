@@ -6,10 +6,10 @@
 </style>
 
 
-<<p style="font-family: monospace"></p>
-<div class=" div monospace">
+<p style="font-family: monospace"></p>
+<div class=" background div monospace container">
     
-    <table>
+    <table class="">
 
         <tr>
                 <h1>{{appunto.titolo}}</h1>
@@ -24,6 +24,8 @@
                 <p> {{appunto.testo}}</p>                      
         </tr>
         <div>
+            <hr>
+            <br>
             <table>
                 <mat-chip-list #chipList aria-label="Tag">
                     <mat-chip *ngFor="let tag of appunto.listaTag" >
