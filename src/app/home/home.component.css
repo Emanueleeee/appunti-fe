@@ -1,62 +1,33 @@
 .banner{
-    background-color: rgb(202, 235, 255);
-    background-size: cover;
-    padding: 1cm;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 200;
-    letter-spacing: 1px;
-    padding: 13px 50px;
-    outline: 0;
-    border: 1px solid black;
-    border-radius:  0px 0px 25px 25px;
-    
-    background-image: url() ;
-    background-repeat:repeat;
-    background-size: auto;
-    box-shadow: 5px 5px 5px rgb(0, 0, 0);
-    text-transform: uppercase;
-    color: navy;
-    text-shadow:
-    -1px -1px 0 rgb(255, 255, 255),
-    1px -1px 0 rgb(255, 255, 255),
-    -1px 1px 0 rgb(255, 255, 255),
-    1px 1px 0 rgb(255, 255, 255);  
+
+  background-size: cover;
+background-image: url();
+  text-align: center;
+  font-size:large;
+  font-weight: 200;
+  letter-spacing: 1px;
+ 
+  outline: 0;
+  border: 1px solid black;
+  border-radius:  0px 0px 25px 25px;
+  font-family: monospace ;
+  background-repeat:repeat;
+  background-size: auto;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0);
+  text-transform: uppercase;
+  color: navy;
+
     /*https://static.thenounproject.com/png/2822493-200.png       img bllxma*/
     
 }
 
-.fill {
-  font-size: 20px;
-  font-weight: 200;
-  letter-spacing: 1px;
-  padding: 13px 50px;
-  outline: 0;
-  border: 1px solid black;
-  cursor: pointer;
-  position: absolute;
-  top: 10cm;
-  left: 20.5cm;
-  border-radius: 25px 25px 25px 25px;
-  background-color: #0000;
-  }
-  
-  .fill::after {
-    content: "";
-    background-color: #ffe54c;
-    width: 100%;
-    z-index: -1;
-    position: absolute;
-    height: 100%;
-    border-radius: 25px 25px 25px 25px;
-    top: 10px;
-    left: 13px;
-    transition: 0.2s;
-  }
-  
-  .fill:hover::after {
-    top: 0px;
-    left: 0px;
-  }
+td {
+  height: 50px;
+  vertical-align: bottom;
+}
+table{
+  border-style: groove;
+  border: 1px;
+}
 
 
