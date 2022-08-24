@@ -4,5 +4,6 @@ export class BaseEntity {
       public dataModifica:Date,
       public utenteCreazione:String,
       public utenteModifica:String
+
     ){}
 }
