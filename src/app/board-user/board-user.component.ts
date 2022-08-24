@@ -66,6 +66,7 @@ export class BoardUserComponent implements OnInit {
           this.eventBusService.emit(new EventData('logout', null));
       }),
       this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.appunti=x})
+    
       this.tabellaTag = false;
       //this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.dataSource=x})
       
