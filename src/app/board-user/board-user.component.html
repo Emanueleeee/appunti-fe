@@ -25,12 +25,6 @@
 <div *ngIf="tabellaTag==false || appunti.length>0">
 <p>Lista Appunti</p>
 <table mat-table [dataSource]="appunti" class="mat-elevation-z8">
-
-<div *ngIf="tabellaTag==false && appunti.length>0">
-
-
-<table mat-table [dataSource]="appunti" class="mat-elevation-z8">
-
  
   <ng-container matColumnDef="titolo">
     <th mat-header-cell *matHeaderCellDef> Titolo </th>
