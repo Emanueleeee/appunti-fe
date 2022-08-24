@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { UserService } from '../_services/user.service';
 
 import { Appunti    } from 'src/app/model/Appunti';
@@ -12,6 +12,15 @@ import { BaseEntity } from '../model/BaseEntity';
 import { EventBusService } from '../_shares/event-bus.service';
 import { EventData } from '../_shares/EventData';
 
+export interface PeriodicElement {
+  titolo: string;
+  sottotitolo: string;
+  testo: string;
+  utenteCreazione: string;
+  dataCreazione:Data;
+  tag:Tag;
+  opzioni:string
+}
 
 
 
@@ -33,6 +42,7 @@ export class BoardUserComponent implements OnInit {
   tabellaTag:boolean = false;
 
   listaAppuntiPub:Appunti[]=[];
+  displayedColumns: string[] = ['titolo', 'sottotitolo', 'testo', 'utenteCreazione','dataCreazione','tag', 'opzioni'];
 
   constructor(
     private userService: UserService,
@@ -56,15 +66,16 @@ export class BoardUserComponent implements OnInit {
           this.eventBusService.emit(new EventData('logout', null));
       }),
       this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.appunti=x})
+    
       this.tabellaTag = false;
-      
+      //this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.dataSource=x})
       
   }
   cancellaAppunti(id:number){
     this.appunto.id=id
     this.appunto.user.id=this.token.getUser().id
     this.repoAppunti.cancellaAppunti(this.appunto).subscribe(x=>{this.appunti=x});
-    
+    window.location.reload()
     }
   modifica(id:number){
   this.appunto.id=id
@@ -88,7 +99,12 @@ export class BoardUserComponent implements OnInit {
     if(this.listaAppunti.length==0){
       this.msg="Non esistono appunti con quel tag"
     }
-    return this.listaAppunti;
+    this.appunti=this.listaAppunti;
+    return this.appunti;
+  }
+  vediTutti(){
+    this.tabellaTag=false;
+    window.location.reload();
   }
 
   pubblica(x:Appunti){

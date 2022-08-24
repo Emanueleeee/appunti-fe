@@ -22,16 +22,20 @@ table {
     border-collapse: collapse;
     background-color: #ffffff;
     width: 100%;
+    border-color: black;
+    border-style: groove;
+    box-shadow: black 1px;
+    
   }
   
   td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 10px;
   }
   
-  tr:nth-child(even) {
-    background-color: #dddddd;
+  tr {
+    background-color: #60d2ff44;
   }
   
 
@@ -42,4 +46,74 @@ table {
     background-attachment: fixed;
   }
 
+  section {
+    display: table;
+  }
   
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+
+  button, table{
+    font-family: monospace;
+  }
+
+  .button:hover{
+   background-color: rgb(96, 183, 241);
+  }
+  .wrap{
+    width: 5cm;
+    word-break: break-word;
+    background-color: rgba(255, 0, 0, 0);
+    border: 1px solid #ffffff00;
+  }
+  table {
+    width: 100%;
+  }
+  .first {
+    width: 50%;
+  }
+  .ellipsis {
+    position: relative;
+  }
+  .ellipsis:before {
+    content: '&nbsp;';
+    visibility: hidden;
+  }
+  .ellipsis span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .button3 {
+  background-color: #008CBA;
+  color: white;
+  margin:10px 11px 11px 9px;
+  }

@@ -18,6 +18,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { TestoComponent } from './testo/testo.component';
 import { MatChipsModule } from '@angular/material/chips';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { MatChipsModule } from '@angular/material/chips';
     ]),
     BrowserAnimationsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   
   providers: [authInterceptorProviders],

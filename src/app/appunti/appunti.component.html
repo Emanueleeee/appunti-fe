@@ -6,8 +6,9 @@
 </style>
 
 
-<p>Crea Nuovo Appunto</p>
-<div>
+<p style="font-family: monospace"></p>
+<div class=" div monospace">
+    
     <table>
 
         <tr>
@@ -43,13 +44,13 @@
                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                            [matChipInputAddOnBlur]="addOnBlur"
                            (matChipInputTokenEnd)="add($event)">
-                           <button>Aggiungi tag</button>
+                         
                   </mat-chip-list>
             </table>
         </div>
     </table>
     <br><br><br><br><br>
 
-    <button (click)="aggiungiAppunto()" class="btn btn-secondary btn-lg">Aggiungi Appunto</button>
+    <button (click)="aggiungiAppunto()" class="btn div btn-secondary btn-lg">Salva</button>
 
 </div>

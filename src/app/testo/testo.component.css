@@ -1,0 +1,48 @@
+p{
+    font-size: 18px;
+  font-family:  monospace;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: lighter;
+
+}
+
+.div {
+    text-align: center;
+    
+}
+
+th{
+    font-size: large;
+}
+.monospace{
+    font-family: monospace;
+}
+
+.container{
+
+    background-color: blanchedalmond 500px 500px;
+}
+
+h1{
+    font-size:xx-large;
+    font-weight: bold;
+    font-family: monospace;
+}
+h2{
+    font-size: x-large;
+    font-family: monospace;
+    font-weight: bolder;
+}
+
+div {
+    white-space: pre-line;
+}
+
+.background{
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}

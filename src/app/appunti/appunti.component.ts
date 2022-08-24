@@ -50,11 +50,7 @@ export class AppuntiComponent implements OnInit {
     
   }
   
-  cancellaAppunti(){
-  this.repoAppunti.cancellaAppunti(this.appunto).subscribe();
-  window.location.reload()
-  }
-
+  
   rimuovi(tag: Tag): void {
     const index = this.appunto.listaTag.indexOf(tag);
 
