@@ -85,3 +85,29 @@ table {
   .button:hover{
    background-color: rgb(96, 183, 241);
   }
+  table {
+    width: 100%;
+  }
+  .first {
+    width: 50%;
+  }
+  .ellipsis {
+    position: relative;
+  }
+  .ellipsis:before {
+    content: '&nbsp;';
+    visibility: hidden;
+  }
+  .ellipsis span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .button3 {
+  background-color: #008CBA;
+  color: white;
+  margin:10px 11px 11px 9px;
+  }
