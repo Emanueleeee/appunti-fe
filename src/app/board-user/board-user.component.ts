@@ -43,7 +43,6 @@ export class BoardUserComponent implements OnInit {
 
   listaAppuntiPub:Appunti[]=[];
   displayedColumns: string[] = ['titolo', 'sottotitolo', 'testo', 'utenteCreazione','dataCreazione','tag', 'opzioni'];
-  dataSource:Appunti[]=[];
 
   constructor(
     private userService: UserService,
@@ -68,7 +67,7 @@ export class BoardUserComponent implements OnInit {
       }),
       this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.appunti=x})
       this.tabellaTag = false;
-      this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.dataSource=x})
+      //this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.dataSource=x})
       
   }
   cancellaAppunti(id:number){
@@ -99,7 +98,12 @@ export class BoardUserComponent implements OnInit {
     if(this.listaAppunti.length==0){
       this.msg="Non esistono appunti con quel tag"
     }
-    return this.listaAppunti;
+    this.appunti=this.listaAppunti;
+    return this.appunti;
+  }
+  vediTutti(){
+    this.tabellaTag=false;
+    window.location.reload();
   }
 
   pubblica(x:Appunti){
