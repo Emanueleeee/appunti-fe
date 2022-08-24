@@ -45,12 +45,13 @@ export class AppuntiComponent implements OnInit {
     this.appunto.utenteCreazione=this.appunto.user.username;
     this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
     this.statoApp=true;
-    this.router.navigate(['/Congratulazioni']);
+    window.location.assign("/boardUser")
+    
   }
   
   cancellaAppunti(){
   this.repoAppunti.cancellaAppunti(this.appunto).subscribe();
-  this.router.navigate(['/Congratulazioni']);
+  window.location.reload()
   }
 
   rimuovi(tag: Tag): void {
@@ -71,5 +72,5 @@ export class AppuntiComponent implements OnInit {
     // pulisce il valore nell'input
     event.chipInput!.clear();
   }
-
+ 
 }

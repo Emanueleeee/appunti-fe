@@ -13,11 +13,11 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { AppuntiComponent } from './appunti/appunti.component';
 import { RouterModule } from '@angular/router';
-import { CongratulazioniComponent } from './congratulazioni/congratulazioni.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
+import { TestoComponent } from './testo/testo.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -30,12 +30,13 @@ import { MatButtonModule } from "@angular/material/button";
     BoardAdminComponent,
     BoardUserComponent,
     AppuntiComponent,
-    CongratulazioniComponent,
+    TestoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatChipsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path:'appunti',component:AppuntiComponent},
@@ -43,10 +44,10 @@ import { MatButtonModule } from "@angular/material/button";
       {path: 'appunti/:cod', component:AppuntiComponent},
       {path:'boardUser',component:BoardUserComponent},
       {path: 'listaAppunti', component:AppuntiComponent},
-      {path: 'Congratulazioni', component:CongratulazioniComponent} 
+      {path: 'testo/:cod', component:TestoComponent} ,
+      {path: 'testo', component:TestoComponent} 
     ]),
     BrowserAnimationsModule,
-    MatChipsModule,
     MatIconModule,
     MatButtonModule
   ],

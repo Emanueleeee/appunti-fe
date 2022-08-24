@@ -1,3 +1,31 @@
+<style>
+  table {
+    width: 100%;
+  }
+  .first {
+    width: 50%;
+  }
+  .ellipsis {
+    position: relative;
+  }
+  .ellipsis:before {
+    content: '&nbsp;';
+    visibility: hidden;
+  }
+  .ellipsis span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .button3 {
+  background-color: #008CBA;
+  color: white;
+  }
+</style>
+
 <div class="container ">
   <header class="jumbotron">
     <h1 class="display-4">{{ content }}</h1>
@@ -12,7 +40,7 @@
   </td>
   <td>
     <input [(ngModel)]="nomeTag">
-    <button (click)="listaAppuntiXTag()" class="fill btn-success">Cerca appunti per tag</button>
+    <button (click)="listaAppuntiXTag()" class="btn btn-secondary btn-lg button3">Cerca appunti per tag</button>
   </td>
 </table>
 
@@ -78,8 +106,9 @@
         <td>
           {{x.sottotitolo}}
         </td>
-        <td>
-          {{x.testo}}
+        <td class="ellipsis">
+          <span>{{x.testo}}</span><br>
+          <button (click)="linkTesto(x.id)" class="button2">Visualizza Testo</button>
         </td>
         <td>
           {{x.user.username}}
@@ -95,13 +124,13 @@
           </mat-chip-list>
         </td>
         <td>
-          <button (click)="cancellaAppunti(x.id)"  class="btn btn-secondary btn-lg">Cancella</button>
+          <button (click)="cancellaAppunti(x.id)"  class="btn btn-secondary btn-lg button3">Cancella</button>
         </td>
         <td>
-          <button (click)="modifica(x.id)"  class="btn btn-secondary btn-lg">Modifica</button>
+          <button (click)="modifica(x.id)"  class="btn btn-secondary btn-lg button3">Modifica</button>
         </td>
         <td>
-          <button (click)="pubblica(x)"  class="btn btn-secondary btn-lg">Pubblica</button>
+          <button (click)="pubblica(x)"  class="btn btn-secondary btn-lg button3">Pubblica</button>
         </td>
      </table>
 </table>
@@ -109,4 +138,4 @@
 
 <br>
 <br>
-<button (click)="aggiungiAppunto()" routerLink="/appunti" class="btn btn-secondary btn-lg">Crea Appunto</button>
+<button (click)="aggiungiAppunto()" routerLink="/appunti" class="btn btn-secondary btn-lg button3">Crea Appunto</button>

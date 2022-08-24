@@ -3,6 +3,7 @@ export class BaseEntity {
       public dataCreazione:Date,
       public dataModifica:Date,
       public utenteCreazione:String,
-      public utenteModifica: String
+      public utenteModifica:String
+
     ){}
 }

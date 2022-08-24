@@ -43,4 +43,7 @@ export class RepoAppunti {
     listaAppuntiPub(pub:boolean):Observable<Appunti[]>{
       return this.serviceAppunti.listaAppuntiPub(pub);
     }
+    appuntoById(id:number):Observable<Appunti>{
+      return this.serviceAppunti.appuntoById(id);
+    }
 }

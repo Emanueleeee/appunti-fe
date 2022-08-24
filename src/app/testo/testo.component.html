@@ -1,0 +1,47 @@
+<style>
+    textarea {
+        width: 400px;
+        height: 200px;
+    }
+</style>
+
+
+<div *ngIf="idAppunto!=0||appunto.id!=null">
+    <table>
+        <tr>
+            <th>Titolo</th>
+            <td>
+                {{appunto.titolo}}
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <th>Sottotitolo</th>
+            <td>
+                {{appunto.sottotitolo}}
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <th>Testo</th>
+            <td>
+                {{appunto.testo}}
+            </td>           
+        </tr>
+        <br>
+        <div>
+            <th>Tag</th><br>
+            <td *ngFor="let y of appunto.listaTag">
+                <mat-chip-list aria-label="Fish selection">
+                  <mat-chip color="primary" selected>
+                      {{y.name}}
+                  </mat-chip>
+                </mat-chip-list>
+            </td>
+        </div>
+    </table>
+
+</div>
+<div *ngIf="appunto.id==null||appunto.id==0">
+    <p>TRIBECA</p>
+</div>

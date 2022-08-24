@@ -58,7 +58,7 @@ export class BoardUserComponent implements OnInit {
       }),
       this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.appunti=x})
       this.lapp = false;
-      this.listaAppuntiPub.push(new Appunti(this.baseEntity,0,"","","",new User(0,"","",""),false, this.tags));
+      
       
   }
   cancellaAppunti(id:number){
@@ -93,6 +93,10 @@ export class BoardUserComponent implements OnInit {
       x.pub=true;
       this.repoAppunti.nuovoAppunto(x).subscribe();
       this.listaAppuntiPub.push(x)
-    }
+  }
 
+  linkTesto(id:number){
+    this.appunto.id=id
+    this.router.navigate(['/testo', id])
+  }
 }
