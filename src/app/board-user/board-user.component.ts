@@ -27,13 +27,12 @@ export class BoardUserComponent implements OnInit {
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
   appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""),false, this.tags);
   content: string="";
-
+  msg=""
   nomeTag!:string
   listaAppunti:Appunti[]=[];
-  lapp:boolean = false;
+  tabellaTag:boolean = false;
 
   listaAppuntiPub:Appunti[]=[];
-  pub:boolean=false;
 
   constructor(
     private userService: UserService,
@@ -57,7 +56,7 @@ export class BoardUserComponent implements OnInit {
           this.eventBusService.emit(new EventData('logout', null));
       }),
       this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.appunti=x})
-      this.lapp = false;
+      this.tabellaTag = false;
       
       
   }
@@ -76,7 +75,8 @@ export class BoardUserComponent implements OnInit {
   }
 
   listaAppuntiXTag(){
-    this.lapp = true;
+    this.msg=""
+    this.tabellaTag = true;
     this.listaAppunti.splice(0, this.listaAppunti.length); //svuoto l'array usando splice(parte dal primo elemnto(0) e cancella tanti elementi quanto la lunghezza dell'array stesso)
     this.appunti.forEach(app => {
       app.listaTag.forEach(tag => {
@@ -85,15 +85,22 @@ export class BoardUserComponent implements OnInit {
         }
       });
     });
+    if(this.listaAppunti.length==0){
+      this.msg="Non esistono appunti con quel tag"
+    }
     return this.listaAppunti;
   }
 
   pubblica(x:Appunti){
-    //this.router.navigate(['/home', id]);
       x.pub=true;
       this.repoAppunti.nuovoAppunto(x).subscribe();
       this.listaAppuntiPub.push(x)
   }
+  privato(x:Appunti){
+    x.pub=false;
+    this.repoAppunti.nuovoAppunto(x).subscribe();
+    this.listaAppuntiPub.splice(x.id,1)
+}
 
   linkTesto(id:number){
     this.appunto.id=id

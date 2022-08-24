@@ -20,8 +20,7 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 export class AppuntiComponent implements OnInit {
 
   nTag:number = 1
-  idAppunto:number=0
-  lt:Tag[]=[];
+
   listaTags:Tag[]=[]
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
   appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), false, this.listaTags);
@@ -33,16 +32,18 @@ export class AppuntiComponent implements OnInit {
 
   constructor(private user: TokenStorageService, public repoAppunti:RepoAppunti, public router:Router, public route:ActivatedRoute, public repoTag:RepoTag) { }
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => { this.idAppunto= + (params.get('cod') + '') })
+    this.route.paramMap.subscribe((params) => { this.appunto.id= + (params.get('cod') + '') })
+    if(this.appunto.id){
+      this.repoAppunti.appuntoById(this.appunto.id).subscribe(x=>{this.appunto=x})
+    }
   }
 
   aggiungiAppunto(){
     this.appunto.user = this.user.getUser();
     this.appunto.user.roles = this.user.getUser().role;
-    this.appunto.id=this.idAppunto
-    this.appunto.listaTag = this.listaTags
     this.appunto.pub=false;
     this.appunto.utenteCreazione=this.appunto.user.username;
+    this.appunto.utenteModifica=this.appunto.user.username
     this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
     this.statoApp=true;
     window.location.assign("/boardUser")
@@ -55,10 +56,10 @@ export class AppuntiComponent implements OnInit {
   }
 
   rimuovi(tag: Tag): void {
-    const index = this.listaTags.indexOf(tag);
+    const index = this.appunto.listaTag.indexOf(tag);
 
     if (index >= 0) {
-      this.listaTags.splice(index, 1);
+      this.appunto.listaTag.splice(index, 1);
     }
   }
   add(event: MatChipInputEvent): void {
@@ -66,7 +67,7 @@ export class AppuntiComponent implements OnInit {
 
     // aggiungi tag
     if (value) {
-      this.listaTags.push({name: value});
+      this.appunto.listaTag.push({name: value});
     }
 
     // pulisce il valore nell'input
