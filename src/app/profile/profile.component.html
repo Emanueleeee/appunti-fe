@@ -1,10 +1,13 @@
 <div class="container background bg"  *ngIf="currentUser; else loggedOut">
   <br><br>
  
-    <h3>
-      
-      <h1 class="display-4" style="text-align:center">{{ currentUser.username }}</h1>
-    </h3>
+    
+ 
+      <h1 class="display-4"> <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png" alt="Avatar" style="float: left align left" class="avatar">
+         {{ currentUser.username }}
+        </h1>
+      <hr>
+    
   
   <br>
   <p class="wrap "  >
@@ -19,6 +22,7 @@
     <strong class="par">Email:</strong>
     {{ currentUser.email }}
   </p>
+  <hr>
  
   <br>
     <p class="wrap par" style="color: red;" *ngFor="let role of currentUser.roles">
