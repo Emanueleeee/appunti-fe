@@ -1,30 +1,30 @@
-<div class="container background bg" *ngIf="currentUser; else loggedOut">
-  
-  <header class="banner">
+<div class="container background bg"  *ngIf="currentUser; else loggedOut">
+  <br><br>
+ 
     <h3>
       
-      <h1 class="display-4">{{ currentUser.username }}</h1>
+      <h1 class="display-4" style="text-align:center">{{ currentUser.username }}</h1>
     </h3>
-  </header>
+  
   <br>
-  <p class="wrap">
+  <p class="wrap "  >
     <strong class="par ">Token:</strong>
     {{ currentUser.accessToken}}
   </p>
-  <p class="wrap">
-    <strong class="par ">RefreshToken:</strong>
+  <p  class="wrap"  >
+    <strong class="par ">RefreshToken:</strong><br>
     {{ currentUser.refreshToken}}
   </p>
-  <p>
+  <p  class="wrap" >
     <strong class="par">Email:</strong>
     {{ currentUser.email }}
   </p>
-  <strong class="par">Roles:</strong>
-  <ul>
-    <li  style="color: red;" *ngFor="let role of currentUser.roles">
-      {{ role }}
-    </li>
-  </ul>
+ 
+  <br>
+    <p class="wrap par" style="color: red;" *ngFor="let role of currentUser.roles">
+    Role:  {{ role }}
+    </p>
+
 </div>
 
 <ng-template #loggedOut>

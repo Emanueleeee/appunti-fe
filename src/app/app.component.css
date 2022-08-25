@@ -4,3 +4,14 @@
 .nav-text {
     vertical-align: middle;
   }
+  mat-icon{
+    margin:5px;
+  }
+
+  #adminToCart {
+ 
+   
+    cursor: pointer;
+  
+  }
+  #admin:hover{color:goldenrod}

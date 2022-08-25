@@ -6,10 +6,10 @@
         <a href="/home" class="nav-link" routerLink="home"><mat-icon>home</mat-icon> </a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+        <a  style="display: flex; align-items: center;" href="/admin" class="nav-link button" id="admin" routerLink="admin">	<mat-icon class="">star</mat-icon>Admin Board</a>
       </li>
       <li class="nav-item ">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user"><mat-icon>library_books</mat-icon>  I miei Appunti</a>
+        <a  style="display: flex; align-items: center;" href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user"><mat-icon>library_books</mat-icon>  I miei Appunti</a>
       </li>
     </ul>
 
@@ -24,10 +24,10 @@
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
       <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">	<mat-icon>person</mat-icon> {{ username }}</a>
+        <a  style="display: flex; align-items: center;" href="/profile" class="nav-link" routerLink="profile">		<mat-icon >face</mat-icon> {{ username }}</a>
       </li>
       <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">Logout</a>
+        <a style="display: flex; align-items: center;" href class="nav-link" (click)="logout()"><mat-icon>exit_to_app</mat-icon> Logout</a>
       </li>
     </ul>
   </nav>
