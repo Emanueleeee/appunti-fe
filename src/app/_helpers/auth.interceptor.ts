@@ -6,6 +6,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 
 import { BehaviorSubject, catchError, filter, Observable, switchMap, take, throwError } from 'rxjs';
 import { AuthService } from '../_services/auth.service';
+import { AppComponent } from '../app.component';
 
 
 const TOKEN_HEADER_KEY = 'Authorization';       // for Spring Boot back-end
@@ -15,9 +16,10 @@ const TOKEN_HEADER_KEY = 'Authorization';       // for Spring Boot back-end
 export class AuthInterceptor implements HttpInterceptor {
 
 private isRefreshing = false;
+
 private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(private tokenService: TokenStorageService, private authService: AuthService) { }
+  constructor(private tokenService: TokenStorageService, private authService: AuthService,private appComponent:AppComponent) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<Object>> {
     let authReq = req;
@@ -48,9 +50,8 @@ private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(nul
             return next.handle(this.addTokenHeader(request, token.accessToken));
           }),
           catchError((err) => {
-            this.isRefreshing = false;
-            
-            this.tokenService.signOut
+            this.isRefreshing = false;   
+           this.appComponent.logout()
             return throwError(err);
           })
         );

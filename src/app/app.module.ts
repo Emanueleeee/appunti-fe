@@ -48,7 +48,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
       {path:'boardUser',component:BoardUserComponent},
       {path: 'listaAppunti', component:AppuntiComponent},
       {path: 'testo/:cod', component:TestoComponent} ,
-      {path: 'testo', component:TestoComponent} 
+      {path: 'testo', component:TestoComponent},
+      {path: 'login', component:LoginComponent} 
     ]),
     BrowserAnimationsModule,
     MatIconModule,
