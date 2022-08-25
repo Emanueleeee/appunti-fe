@@ -17,3 +17,6 @@ th{
 .monospace{
     font-family: monospace;
 }
+.example-chip-list {
+    width: 100%;
+  }

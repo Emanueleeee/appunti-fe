@@ -14,4 +14,7 @@ export class RepoTag {
     findByName(nameTag:string):Observable<Tag>{
       return this.appuntiService.findByName(nameTag);
     }
+    listaTuttiTag():Observable<Tag[]>{
+      return this.appuntiService.listaTuttiTag();
+    }
 }
