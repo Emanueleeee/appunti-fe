@@ -10,12 +10,15 @@
 }
 
 .font{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: monospace;
 }
 
-.h1{
-    font-size: large;
-    font-weight: bold;
+h1{
+    font-size: xx-large;
+    font-weight: lighter;
+    text-align: center;
+    font-family: monospace;
+    padding-top: 10px;
 }
 table {
     font-family: arial, sans-serif;
@@ -23,19 +26,19 @@ table {
     background-color: #ffffff;
     width: 100%;
     border-color: black;
-    border-style: groove;
+    
     box-shadow: black 1px;
     
   }
   
   td, th {
     border: 1px solid #dddddd;
-    text-align: left;
-    padding: 10px;
+    text-align: center;
+    padding: 10px;  
   }
   
   tr {
-    background-color: #60d2ff44;
+    background-color: #142c350f;
   }
   
 
@@ -116,4 +119,17 @@ table {
   background-color: #008CBA;
   color: white;
   margin:10px 11px 11px 9px;
+  }
+  .background{
+    background-color: #008CBA;
+   
+    
+  }
+
+
+  .button-search{
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
   }
