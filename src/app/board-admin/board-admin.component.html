@@ -1,86 +1,60 @@
- <!-- <style>
-
- th {
-       
-        text-align: center;
-        font-weight: bold;
-        font-size: 20px;
-    }
-
-    tr {
-
-        border-style: ridge;
-        border-color: rgb(0, 0, 0);
-        font-weight: bolder;
-
-    }
-  div {
-      position: relative;
-      margin: 0 auto;
-      text-align: left;
-      clear: left;
-      height: auto;
-      z-index: 0;
-  }
-
-  td {
-      text-align: center;
-      border: 3px double black;
-      font-weight: bold;
-      font-size: large;
-
-  }
-
-  table {
-      margin-left: auto;
-      margin-right: auto;
-  }
-
-  .login-paragraph {
-
-      text-align: center;
-      font-weight: bold;
-      font-size: 25px;
-      padding: 25px 0;
-  }
-
-  .button5 {
-      background-color: white;
-      color: black;
-      border: 2px solid #555555;
-  }
-
-  .button5:hover {
-      background-color: #555555;
-      color: white;
-  }
-  li{
-    text-align: start;
-  } 
-</style> -->
-<div class="container ">
-  <header class="jumbotron">
-    <h1 class="display-4">{{ content }}</h1>
-    <p class="lead">Pagina dove si possono vedere gli appunti di tutti - Admin </p>
-  </header>
+<div *ngIf="arrAppunti.length>0">
+  <br>
+    <div class="background">
+      <h1 style="color:white">{{ content }}</h1>   
+    
+    <div class="centered par font title font">
+    <p class="par" style="color:white" >Lista degli Appunti</p>
+    
+    
+    <div *ngIf=" arrAppunti.length>0">
+    
+    <table mat-table [dataSource]="arrAppunti" class="mat-elevation-z8">
+    
+      <ng-container matColumnDef="titolo">
+        <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Titolo </th>
+        <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element" > {{element.titolo}} </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="sottotitolo">
+        <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Sottotitolo </th>
+        <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element" > {{element.sottotitolo}} </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="testo">
+        <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Testo </th>
+        
+        <td style="text-align:center; padding: 5px;" class="ellipsis" mat-cell *matCellDef="let element"> <button (click)="linkTesto(element.id)" class="btn button btn-secondary btn-lg button3">Visualizza Testo</button> </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="utenteCreazione">
+        <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Utente </th>
+        <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element"> {{element.utenteCreazione}} </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="dataCreazione">
+        <th style="text-align:center; padding: 5px;"mat-header-cell *matHeaderCellDef> Data </th>
+        <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element"> {{element.dataCreazione}} </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="tag">
+        <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Tag </th>
+        <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element">
+          <mat-chip-list style="text-align:inherit;" *ngFor="let x of element.listaTag" aria-label="Fish selection">
+            <mat-chip  style="background-color: #008CBA; color:white" selected>
+                {{x.name}}
+            </mat-chip>
+          </mat-chip-list>
+        </td>
+      </ng-container>  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    </div>
+  <br>
 </div>
-<div class="bg" *ngIf="arrAppunti.length>0">
-  <br>
-  <p class="login-paragraph centered font-title"> Lista degli appunti</p>
-  <table style="border:thin solid black;margin-left:auto;margin-right:auto;" class="styled-table font-table table-striped table-dark">
-    <thead class="thead-dark">
-    <tr>
-      <th>Titolo</th>
-      <th>Sottotitolo</th>
-      <th>Utente</th>
-  </tr>
-  </thead>
-      <tr  *ngFor="let x of arrAppunti">
-        <td>{{x.titolo}}</td> 
-        <td>{{x.sottotitolo}}</td> 
-        <td>{{x.user.username}}</td> 
-      </tr>
-
-  </table>
-  <br>
 </div>
