@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { Appunti } from '../model/Appunti';
 import { TokenStorageService } from '../_services/token-storage.service';
@@ -10,6 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RepoTag } from '../repositories/RepoTag';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { map, startWith } from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -29,13 +33,26 @@ export class AppuntiComponent implements OnInit {
   //variabili per le chips dei tag
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
+  filteredTag!: Observable<string[]>;
+  @ViewChild('tagInput') tagInput!: ElementRef<HTMLInputElement>;
+  tag:string[]=[];
+  tagCtrl = new FormControl('');
+  tuttiTag:string[]=[];
 
-  constructor(private user: TokenStorageService, public repoAppunti:RepoAppunti, public router:Router, public route:ActivatedRoute, public repoTag:RepoTag) { }
+  constructor(private user: TokenStorageService, public repoAppunti:RepoAppunti, public router:Router, public route:ActivatedRoute, public repoTag:RepoTag) { 
+    this.listaTuttiTag();
+    this.filteredTag = this.tagCtrl.valueChanges.pipe(
+      startWith(null),
+      map((tag: string | null) => (tag ? this._filter(tag) : this.tuttiTag.slice())),
+    );
+    
+  }
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => { this.appunto.id= + (params.get('cod') + '') })
     if(this.appunto.id){
       this.repoAppunti.appuntoById(this.appunto.id).subscribe(x=>{this.appunto=x})
     }
+    
   }
 
   aggiungiAppunto(){
@@ -68,6 +85,27 @@ export class AppuntiComponent implements OnInit {
 
     // pulisce il valore nell'input
     event.chipInput!.clear();
+    this.tagCtrl.setValue(null);
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.tag.push(event.option.viewValue);
+    this.tagInput.nativeElement.value = '';
+    this.tagCtrl.setValue(null);
+    let newTag = new Tag(event.option.viewValue);
+    this.appunto.listaTag.push(newTag)
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.tuttiTag.filter(tag => tag.toLowerCase().includes(filterValue));
+  }
+  listaTuttiTag(){
+    this.repoTag.listaTuttiTag().subscribe(arrTag =>{
+      arrTag.forEach(element => {
+        this.tuttiTag.push(element.name)
+      });
+    });
   }
  
 }

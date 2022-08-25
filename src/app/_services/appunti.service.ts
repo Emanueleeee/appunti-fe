@@ -40,4 +40,7 @@ export class AppuntiService {
   findByName(nameTag:string):Observable<Tag>{
     return this.http.post<Tag>(this.url+'/cercaTag', nameTag);
   }
+  listaTuttiTag():Observable<Tag[]>{
+    return this.http.get<Tag[]>(this.url+'/listaTuttiTag')
+  }
 }
