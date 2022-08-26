@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TokenStorageService } from './_services/token-storage.service';
 import { EventBusService } from './_shares/event-bus.service';
-
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -40,11 +42,17 @@ export class AppComponent implements OnInit {
 
       this.eventBusSub.unsubscribe();
   }
-  logout(): void {
+  logout(): void{
     this.tokenStorageService.signOut();
-    //window.location.reload();
     this.isLoggedIn = false;
     this.roles = [];
     this.showAdminBoard = false;
+    window.location.assign("/login");
+  
   }
+  
+  isLogged(): Boolean {
+    return this.isLoggedIn;
+  }
+ 
 }

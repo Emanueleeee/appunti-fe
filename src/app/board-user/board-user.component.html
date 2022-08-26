@@ -3,14 +3,10 @@
     <h1 style="color:white">{{ content }}</h1>   
   
 <div class="centered par font title font">
-<p class="par"></p>
 
-
-<button  style="float:left; ;background-color:white; color:black" (click)="aggiungiAppunto()" routerLink="/appunti" class="btn button btn-secondary btn-lg button3">Crea Appunto</button>
-
-    <input style="float:right; margin-right: 10px;" placeholder="Search tags..." [(ngModel)]="nomeTag">
-    <button style="float:right;" class="button-search" (click)="listaAppuntiXTag()"><mat-icon style="color:white; padding-top:5px">search</mat-icon></button>
-  
+<p class="par"></p>  
+    <app-utility-tag (passoListaTag)="addItem($event)"> </app-utility-tag>
+    <button class="button-search" (click)="listaAppuntiXTag()"><mat-icon style="color:white; padding-top:5px">search</mat-icon></button>  
 <br>
 <p style="color:white">{{msg}}</p>
 <br>
