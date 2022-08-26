@@ -47,7 +47,7 @@
 
     <ng-container matColumnDef="dataCreazione">
       <th style="text-align:center; padding: 5px;"mat-header-cell *matHeaderCellDef> Data </th>
-      <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element"> {{element.dataCreazione}} </td>
+      <td style="text-align:center; padding: 5px; width:10%;" mat-cell *matCellDef="let element"> {{element.dataCreazione}} </td>
     </ng-container>
 
 
@@ -55,7 +55,7 @@
       <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Tag </th>
       <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element">
         <mat-chip-list style="text-align:inherit;" *ngFor="let x of element.listaTag" aria-label="Fish selection">
-          <mat-chip  style="background-color: #008CBA; color:white" selected>
+          <mat-chip  style="background-color: #008CBA; color:white; margin:5px ;" selected>
               {{x.name}}
           </mat-chip>
         </mat-chip-list>
