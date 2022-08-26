@@ -11,7 +11,7 @@ export class Validazione{
         let strTesto:string[]=this.validaTesto(appunto.testo)
         for (let i=0; i<strTitolo.length; i++)
         {
-            str.push(strTitolo[i]);
+            str.push(strTitolo[i]+"");
         }
         for (let i=0; i<strSottotitolo.length; i++)
         {

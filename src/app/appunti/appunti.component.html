@@ -6,26 +6,26 @@
 </style>
 
 
-<p style="font-family: monospace" *ngFor="let x of str">{{x}}</p>
-<p style="font-family: monospace" *ngFor="let x of strTag">{{x}}</p>
+<span style="font-family: monospace" *ngFor="let x of str">{{x}}</span>
+<span style="font-family: monospace" *ngFor="let x of strTag">{{x}}</span>
 <div class=" div monospace">
     
     <table>
 
         <tr>
             <th >Titolo<br>
-                <input  [(ngModel)]="appunto.titolo">
+                <input  placeholder ="inserire titolo..."[(ngModel)]="appunto.titolo">
                 
             </th>
         </tr>
         <tr>
             <th>Sottotitolo<br>
-                <input [(ngModel)]="appunto.sottotitolo">
+                <input placeholder ="inserire sottotitolo..."[(ngModel)]="appunto.sottotitolo">
             </th>
         </tr>
         <tr>
             <th>Testo<br>             
-                <textarea [(ngModel)]="appunto.testo"></textarea>              
+                <textarea placeholder ="inserire testo..."[(ngModel)]="appunto.testo"></textarea>              
             </th>           
         </tr>
         <div>
