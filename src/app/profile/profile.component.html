@@ -1,30 +1,45 @@
 <div class="container background bg" *ngIf="currentUser; else loggedOut">
-  
-  <header class="banner">
-    <h3>
-      
-      <h1 class="display-4">{{ currentUser.username }}</h1>
-    </h3>
-  </header>
+  <br><br>
+  <h1 class="display-4"> <img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
+      alt="Avatar" style="float: left align left" class="avatar">
+    {{ currentUser.username }}
+  </h1>
+
+  <span>
+    <p style="display: flex; align-items: center;text-align:right; float:right; position: absolute; top: 80px; right: 340px; "
+      class=" monospace">
+      <mat-icon> email</mat-icon>
+      {{ currentUser.email }}
+  </span>
+  <span>
+    <p class="wrap par"
+      style=" font: monospace;text-align:right; float:right; position: absolute; top: 115px; right: 340px; color: red; "
+      *ngFor="let role of currentUser.roles">
+      Role: {{ role }}
+    </p>
+  </span>
+
+  <hr>
   <br>
-  <p class="wrap">
-    <strong class="par ">Token:</strong>
-    {{ currentUser.accessToken}}
-  </p>
-  <p class="wrap">
-    <strong class="par ">RefreshToken:</strong>
-    {{ currentUser.refreshToken}}
-  </p>
-  <p>
-    <strong class="par">Email:</strong>
-    {{ currentUser.email }}
-  </p>
-  <strong class="par">Roles:</strong>
-  <ul>
-    <li  style="color: red;" *ngFor="let role of currentUser.roles">
-      {{ role }}
-    </li>
-  </ul>
+  <details>
+    <summary class="monospace">Token</summary>
+    <p class="wrap monospace ">
+
+      {{ currentUser.accessToken}}
+    </p>
+  </details>
+  <details>
+    <summary class="monospace">RefreshToken</summary>
+    <p class="wrap monospace">
+      {{ currentUser.refreshToken}}
+    </p>
+  </details>
+  <p class="wrap monospace">
+
+    <hr>
+
+    <br>
+
 </div>
 
 <ng-template #loggedOut>

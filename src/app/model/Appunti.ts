@@ -6,9 +6,9 @@ export class Appunti extends BaseEntity {
     constructor(
       baseEntity:BaseEntity,
       public id:number,
-      public titolo:String,
-      public sottotitolo:String,
-      public testo:String,
+      public titolo:string,
+      public sottotitolo:string,
+      public testo:string,
       public user:User,
       public pub:boolean,
       public listaTag:Tag[]

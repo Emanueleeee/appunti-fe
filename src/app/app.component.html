@@ -6,28 +6,28 @@
         <a href="/home" class="nav-link" routerLink="home"><mat-icon>home</mat-icon> </a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+        <a  style="display: flex; align-items: center;" href="/admin" class="nav-link button" id="admin" routerLink="admin">	<mat-icon class="">star</mat-icon>Admin Board</a>
       </li>
       <li class="nav-item ">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user"><mat-icon>library_books</mat-icon>  I miei Appunti</a>
+        <a  style="display: flex; align-items: center;" href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user"><mat-icon>library_books</mat-icon>  I miei Appunti</a>
       </li>
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Registrazione</a>
+        <a style="display: flex; align-items: center;"  href="/register" class="nav-link" routerLink="register"> <mat-icon>alternate_email</mat-icon> Registrazione</a>
       </li>
       <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
+        <a style="display: flex; align-items: center;" href="/login" class="nav-link" routerLink="login">	<mat-icon>fingerprint</mat-icon>Login</a>
       </li>
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
       <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">	<mat-icon>person</mat-icon> {{ username }}</a>
+        <a  style="display: flex; align-items: center;" href="/profile" class="nav-link" routerLink="profile">		<mat-icon >face</mat-icon> {{ username }}</a>
       </li>
       <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">Logout</a>
+        <a style="display: flex; align-items: center;" href class="nav-link" (click)="logout()"><mat-icon>exit_to_app</mat-icon> Logout</a>
       </li>
     </ul>
   </nav>

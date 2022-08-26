@@ -6,7 +6,7 @@
 </style>
 
 
-<p style="font-family: monospace"></p>
+<p style="font-family: monospace" *ngFor="let x of str">{{x}}</p>
 <div class=" div monospace">
     
     <table>
@@ -33,7 +33,6 @@
         </div>
     </table>
     <br><br><br><br><br>
-
     <button (click)="aggiungiAppunto()" class="btn div btn-secondary btn-lg">Salva</button>
 
 </div>

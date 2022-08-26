@@ -6,9 +6,9 @@ import { Role } from "./Role";
 export class User{
  
     constructor(public id:number,
-        public username:String,
-        public email:String,
-        public password:String,
+        public username:string,
+        public email:string,
+        public password:string,
 
         public roles:Role[]=[],
         public listaAppunti?:Appunti){}

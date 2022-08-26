@@ -8,6 +8,9 @@ import { BaseEntity } from '../model/BaseEntity';
 import { User } from '../model/User';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RepoTag } from '../repositories/RepoTag';
+import { Validazione } from '../validazione/validazione';
+
+
 
 
 @Component({
@@ -41,10 +44,14 @@ export class AppuntiComponent implements OnInit {
     this.appunto.user.roles = this.user.getUser().role;
     this.appunto.pub=false;
     this.appunto.utenteCreazione=this.appunto.user.username;
-    this.appunto.utenteModifica=this.appunto.user.username
-    this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
-    this.statoApp=true;
-    window.location.assign("/boardUser")
+    this.appunto.utenteModifica=this.appunto.user.username;
+    this.str = Validazione.validaAppunto(this.appunto);
+    if (this.str.length == 0) {
+      this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
+      this.statoApp=true;
+      window.location.assign("/boardUser") 
+    }
+ 
     
   }
  

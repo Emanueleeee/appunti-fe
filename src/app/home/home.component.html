@@ -1,76 +1,64 @@
-<style>
-  table {
-    width: 100%;
-  }
-  .first {
-    width: 50%;
-  }
-  .ellipsis {
-    position: relative;
-  }
-  .ellipsis:before {
-    content: '&nbsp;';
-    visibility: hidden;
-  }
-  .ellipsis span {
-    position: absolute;
-    left: 0;
-    right: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .button3 {
-  background-color: #008CBA;
-  color: white;
-  }
-</style>
 
-<div class="container ">
-  <header class="banner">
-    
-    <h1 class="display-4">{{ content }}</h1>
-   
-    <table class="table ">
-      <table *ngFor="let x of lisAppPub">
-       <tr>
-         <th>Titolo</th>
-         <th>Sottotitolo</th>
-         <th>Link al Testo</th>
-         <th>Utente_Creazione</th>
-         <th>Data Creazione</th>
-         <th>Tag</th>
-       </tr>
-         <td class="td">
-           {{x.titolo}}
-         </td>
-         <td>
-           {{x.sottotitolo}}
-         </td>
-         <td class="ellipsis">
-          <span>{{x.testo}}</span>
-        </td>
-         <td>
-           {{x.user.username}}
-         </td>
-         <td>
-           {{x.dataCreazione}}
-         </td>
-         <td *ngFor="let y of x.listaTag">
-           <mat-chip-list aria-label="Fish selection">
-             <mat-chip style="background-color: black;" selected>
-                 {{y.name}}
-             </mat-chip>
-           </mat-chip-list>
-      </table>
- </table>
-  </header>
 
-<div>
- <!-- <button class="fill" type="button">test </button> -->
+<div *ngIf="lisAppPub.length>0">
+
+  <div class="background">
+    <h1 style="color:white">{{ content }}</h1>   
+  
+  <div class="centered par font title font">
+  <p class="par" style="color:white" >Lista degli Appunti</p>
+  
+  
+  <div *ngIf=" lisAppPub.length>0">
+  
+  <table mat-table [dataSource]="lisAppPub" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="titolo">
+      <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Titolo </th>
+      <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element" > {{element.titolo}} </td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="sottotitolo">
+      <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Sottotitolo </th>
+      <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element" > {{element.sottotitolo}} </td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="testo">
+      <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Testo </th>
+      
+      <td style="text-align:center; padding: 5px;" class="ellipsis" mat-cell *matCellDef="let element"> <button (click)="linkTesto(element.id)" class="btn button btn-secondary btn-lg button3">Visualizza Testo</button> </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="utenteCreazione">
+      <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Utente </th>
+      <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element"> {{element.utenteCreazione}} </td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="dataCreazione">
+      <th style="text-align:center; padding: 5px;"mat-header-cell *matHeaderCellDef> Data </th>
+      <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element"> {{element.dataCreazione}} </td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="tag">
+      <th style="text-align:center; padding: 5px;" mat-header-cell *matHeaderCellDef> Tag </th>
+      <td style="text-align:center; padding: 5px;" mat-cell *matCellDef="let element">
+        <mat-chip-list style="text-align:inherit;" *ngFor="let x of element.listaTag" aria-label="Fish selection">
+          <mat-chip  style="background-color: #008CBA; color:white" selected>
+              {{x.name}}
+          </mat-chip>
+        </mat-chip-list>
+      </td>
+    </ng-container>  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
+
 </div>
-
-
 </div>
 
 
