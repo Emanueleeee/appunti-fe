@@ -24,7 +24,12 @@ export class UtilityTagComponent implements OnInit {
   @Output() passoListaTag = new EventEmitter<Tag[]>()
 
   listaTags:Tag[]=[]
-  
+  @Input ('idAppunto')
+  idAppunto!:number
+
+  baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
+  appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), false, this.listaTags);
+  statoApp:boolean=false;
 
   //variabili per le chips dei tag
   addOnBlur = true;
@@ -90,5 +95,13 @@ export class UtilityTagComponent implements OnInit {
 
   addNewItem() {
     this.passoListaTag.emit(this.listaTags);
+  }
+
+  listaTagUtente(){
+    if(this.idAppunto){
+      this.repoAppunti.appuntoById(this.idAppunto).subscribe(x=>{this.appunto=x})
+    }
+    this.listaTags=this.appunto.listaTag;
+    return this.listaTags;
   }
 }

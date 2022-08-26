@@ -1,7 +1,7 @@
 <table>
     <mat-form-field class="example-chip-list">
     <mat-chip-list #chipList aria-label="Tag selection">
-        <mat-chip *ngFor="let tag of listaTags" (removed)="rimuovi(tag)">
+        <mat-chip *ngFor="let tag of listaTagUtente()" (removed)="rimuovi(tag)">
             <div *ngIf="tag.name.length > 0">
                 {{tag.name}}
             </div>
