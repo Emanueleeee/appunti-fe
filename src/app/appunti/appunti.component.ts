@@ -40,12 +40,13 @@ export class AppuntiComponent implements OnInit {
   tuttiTag:string[]=[];
 
   constructor(private user: TokenStorageService, public repoAppunti:RepoAppunti, public router:Router, public route:ActivatedRoute, public repoTag:RepoTag) { 
+    /*
     this.listaTuttiTag();
     this.filteredTag = this.tagCtrl.valueChanges.pipe(
       startWith(null),
       map((tag: string | null) => (tag ? this._filter(tag) : this.tuttiTag.slice())),
     );
-    
+    */
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => { this.appunto.id= + (params.get('cod') + '') })
@@ -53,6 +54,10 @@ export class AppuntiComponent implements OnInit {
       this.repoAppunti.appuntoById(this.appunto.id).subscribe(x=>{this.appunto=x})
     }
     
+  }
+
+  addItem(newItem: Tag[]){
+    this.appunto.listaTag = newItem;
   }
 
   aggiungiAppunto(){
@@ -67,7 +72,7 @@ export class AppuntiComponent implements OnInit {
     
   }
   
-  
+  /*
   rimuovi(tag: Tag): void {
     const index = this.appunto.listaTag.indexOf(tag);
 
@@ -107,5 +112,6 @@ export class AppuntiComponent implements OnInit {
       });
     });
   }
+  */
  
 }

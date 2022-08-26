@@ -21,6 +21,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import {MatTableModule} from '@angular/material/table';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { UtilityTagComponent } from './utility-tag/utility-tag.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BoardAdminComponent,
     BoardUserComponent,
     AppuntiComponent,
-    TestoComponent
+    TestoComponent,
+    UtilityTagComponent
   ],
   imports: [
     BrowserModule,
