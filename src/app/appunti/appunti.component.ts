@@ -14,6 +14,7 @@ import { map, startWith } from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { FormControl } from '@angular/forms';
+import { Validazione } from '../validazione/validazione';
 
 
 @Component({
@@ -24,7 +25,7 @@ import { FormControl } from '@angular/forms';
 export class AppuntiComponent implements OnInit {
 
   nTag:number = 1
-
+  str!: string[];
   listaTags:Tag[]=[]
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
   appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), false, this.listaTags);
@@ -60,10 +61,14 @@ export class AppuntiComponent implements OnInit {
     this.appunto.user.roles = this.user.getUser().role;
     this.appunto.pub=false;
     this.appunto.utenteCreazione=this.appunto.user.username;
-    this.appunto.utenteModifica=this.appunto.user.username
-    this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
-    this.statoApp=true;
-    window.location.assign("/boardUser")
+    this.appunto.utenteModifica=this.appunto.user.username;
+    this.str = Validazione.validaAppunto(this.appunto);
+    if (this.str.length == 0) {
+      this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
+      this.statoApp=true;
+      window.location.assign("/boardUser") 
+    }
+ 
     
   }
   
