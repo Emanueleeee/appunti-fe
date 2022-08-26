@@ -12,6 +12,11 @@
  
    
     cursor: pointer;
+    
   
   }
-  #admin:hover{color:goldenrod}
+  #admin:hover{
+    color:goldenrod
+  }
+
+  
