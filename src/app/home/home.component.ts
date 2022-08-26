@@ -20,9 +20,10 @@ export class HomeComponent implements OnInit {
   listaTags:Tag[]=[]
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
   appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""),false, this.listaTags);
+  displayedColumns: string[] = ['titolo', 'sottotitolo', 'testo', 'utenteCreazione','dataCreazione','tag'];
   pub:boolean=true;
 
-  constructor(private userService: UserService, public route:ActivatedRoute, public repoAppunti:RepoAppunti) { }
+  constructor(private userService: UserService, public route:ActivatedRoute, public repoAppunti:RepoAppunti, public router:Router) { }
 
   ngOnInit(): void {
     this.userService.getPublicContent().subscribe(
@@ -34,6 +35,10 @@ export class HomeComponent implements OnInit {
       }
     );
     this.repoAppunti.listaAppuntiPub(this.pub).subscribe(x=>{this.lisAppPub=x});
+  }
+  linkTesto(id:number){
+    this.appunto.id=id
+    this.router.navigate(['/testo', id])
   }
   
 }
