@@ -37,12 +37,14 @@ export class BoardUserComponent implements OnInit {
   appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""),false, this.tags);
   content: string="";
   msg=""
-  nomeTag!:string
+  nomeTag!:string;
+  nomeTagArr:Tag[]=[];
   listaAppunti:Appunti[]=[];
   tabellaTag:boolean = false;
-
+  listaTagRicerca:Tag[]=[];
   listaAppuntiPub:Appunti[]=[];
   displayedColumns: string[] = ['titolo', 'sottotitolo', 'testo', 'utenteCreazione','dataCreazione','tag', 'opzioni'];
+  copiaListaAppunti:Appunti[]=[];
 
   constructor(
     private userService: UserService,
@@ -66,9 +68,8 @@ export class BoardUserComponent implements OnInit {
           this.eventBusService.emit(new EventData('logout', null));
       }),
       this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.appunti=x})
-    
       this.tabellaTag = false;
-      //this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.dataSource=x})
+      this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.copiaListaAppunti=x})
       
   }
   cancellaAppunti(id:number){
@@ -85,26 +86,38 @@ export class BoardUserComponent implements OnInit {
     this.router.navigate(['/appunti']);
   }
 
+  addItem(newItem: Tag[]){
+    this.nomeTagArr = newItem;
+    /*
+    newItem.forEach(element => {
+      this.nomeTag=element.name;
+    });
+    */
+  }
   listaAppuntiXTag(){
     this.msg=""
     this.tabellaTag = true;
+    this.appunti=this.copiaListaAppunti;
     this.listaAppunti.splice(0, this.listaAppunti.length); //svuoto l'array usando splice(parte dal primo elemnto(0) e cancella tanti elementi quanto la lunghezza dell'array stesso)
     this.appunti.forEach(app => {
       app.listaTag.forEach(tag => {
-        if(tag.name == this.nomeTag){
-          this.listaAppunti.push(app);
-        }
+        this.nomeTagArr.forEach(element => {
+          if(element.name==tag.name)
+            this.listaAppunti.push(app);
+        });
       });
     });
     if(this.listaAppunti.length==0){
       this.msg="Non esistono appunti con quel tag"
     }
     this.appunti=this.listaAppunti;
+    this.nomeTagArr.splice(0, this.nomeTagArr.length);
     return this.appunti;
   }
   vediTutti(){
+    this.msg=""
     this.tabellaTag=false;
-    window.location.reload();
+    this.appunti=this.copiaListaAppunti;
   }
 
   pubblica(x:Appunti){
@@ -116,7 +129,7 @@ export class BoardUserComponent implements OnInit {
     x.pub=false;
     this.repoAppunti.nuovoAppunto(x).subscribe();
     this.listaAppuntiPub.splice(x.id,1)
-}
+  }
 
   linkTesto(id:number){
     this.appunto.id=id
