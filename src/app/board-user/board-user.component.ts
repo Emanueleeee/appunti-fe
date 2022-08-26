@@ -37,10 +37,11 @@ export class BoardUserComponent implements OnInit {
   appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""),false, this.tags);
   content: string="";
   msg=""
-  nomeTag!:string
+  nomeTag!:string;
+  nomeTagArr:Tag[]=[];
   listaAppunti:Appunti[]=[];
   tabellaTag:boolean = false;
-
+  listaTagRicerca:Tag[]=[];
   listaAppuntiPub:Appunti[]=[];
   displayedColumns: string[] = ['titolo', 'sottotitolo', 'testo', 'utenteCreazione','dataCreazione','tag', 'opzioni'];
 
@@ -85,15 +86,24 @@ export class BoardUserComponent implements OnInit {
     this.router.navigate(['/appunti']);
   }
 
+  addItem(newItem: Tag[]){
+    this.nomeTagArr = newItem;
+    /*
+    newItem.forEach(element => {
+      this.nomeTag=element.name;
+    });
+    */
+  }
   listaAppuntiXTag(){
     this.msg=""
     this.tabellaTag = true;
     this.listaAppunti.splice(0, this.listaAppunti.length); //svuoto l'array usando splice(parte dal primo elemnto(0) e cancella tanti elementi quanto la lunghezza dell'array stesso)
     this.appunti.forEach(app => {
       app.listaTag.forEach(tag => {
-        if(tag.name == this.nomeTag){
-          this.listaAppunti.push(app);
-        }
+        this.nomeTagArr.forEach(element => {
+          if(element.name==tag.name)
+            this.listaAppunti.push(app);
+        });
       });
     });
     if(this.listaAppunti.length==0){
@@ -116,7 +126,7 @@ export class BoardUserComponent implements OnInit {
     x.pub=false;
     this.repoAppunti.nuovoAppunto(x).subscribe();
     this.listaAppuntiPub.splice(x.id,1)
-}
+  }
 
   linkTesto(id:number){
     this.appunto.id=id

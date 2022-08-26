@@ -3,14 +3,9 @@
     <h1 style="color:white">{{ content }}</h1>   
   
 <div class="centered par font title font">
-<p class="par"></p>
-
-
- 
-  
-    <input placeholder="Search tags..." [(ngModel)]="nomeTag">
-    <button class="button-search" (click)="listaAppuntiXTag()"><mat-icon style="color:white; padding-top:5px">search</mat-icon></button>
-  
+<p class="par"></p>  
+    <app-utility-tag (passoListaTag)="addItem($event)"> </app-utility-tag>
+    <button class="button-search" (click)="listaAppuntiXTag()"><mat-icon style="color:white; padding-top:5px">search</mat-icon></button>  
 <br>
 <p style="color:white">{{msg}}</p>
 <br>
