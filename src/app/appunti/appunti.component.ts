@@ -24,6 +24,8 @@ export class AppuntiComponent implements OnInit {
   baseEntity:BaseEntity = new BaseEntity(new Date(), new Date(), "","");
   appunto:Appunti = new Appunti(this.baseEntity,0,"","","",new User(0,"","",""), false, this.listaTags);
   statoApp:boolean=false;
+  str!: string[];
+  strTag: string[]=[]
 
   constructor(private user: TokenStorageService, public repoAppunti:RepoAppunti, public router:Router, public route:ActivatedRoute, public repoTag:RepoTag) {}
   
@@ -32,11 +34,16 @@ export class AppuntiComponent implements OnInit {
     if(this.appunto.id){
       this.repoAppunti.appuntoById(this.appunto.id).subscribe(x=>{this.appunto=x})
     }
+
     
   }
 
   addItem(newItem: Tag[]){
+    newItem.forEach(element => {
+      this.strTag=Validazione.validaTag(element.name)
+    });
     this.appunto.listaTag = newItem;
+  
   }
 
   aggiungiAppunto(){
@@ -46,7 +53,9 @@ export class AppuntiComponent implements OnInit {
     this.appunto.utenteCreazione=this.appunto.user.username;
     this.appunto.utenteModifica=this.appunto.user.username;
     this.str = Validazione.validaAppunto(this.appunto);
-    if (this.str.length == 0) {
+    if(this.appunto.listaTag.length<=0)
+      this.strTag.push("Tag non inserito")
+    if (this.str.length == 0&&this.strTag.length==0) {
       this.repoAppunti.nuovoAppunto(this.appunto).subscribe();
       this.statoApp=true;
       window.location.assign("/boardUser") 

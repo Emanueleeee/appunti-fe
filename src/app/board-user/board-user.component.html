@@ -5,6 +5,7 @@
 <div class="centered par font title font">
 
 <p class="par"></p>  
+<button  style="float:left; ;background-color:white; color:black" (click)="aggiungiAppunto()" routerLink="/appunti" class="btn button btn-secondary btn-lg button3">Crea Appunto</button>
     <app-utility-tag (passoListaTag)="addItem($event)"> </app-utility-tag>
     <button class="button-search" (click)="listaAppuntiXTag()"><mat-icon style="color:white; padding-top:5px">search</mat-icon></button>  
 <br>

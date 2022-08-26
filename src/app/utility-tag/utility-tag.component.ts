@@ -94,6 +94,7 @@ export class UtilityTagComponent implements OnInit {
   }
 
   addNewItem() {
+    
     this.passoListaTag.emit(this.listaTags);
   }
 
