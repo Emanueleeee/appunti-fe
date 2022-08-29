@@ -2,3 +2,9 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body{
+    background-image: url(https://img.freepik.com/premium-photo/flat-lay-office-supplies-various-stationery-light-blue-background-back-school-frame-made-school-accessories_261761-1097.jpg?w=2000);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
