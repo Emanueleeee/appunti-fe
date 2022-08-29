@@ -44,7 +44,6 @@ export class BoardUserComponent implements OnInit {
   listaTagRicerca:Tag[]=[];
   listaAppuntiPub:Appunti[]=[];
   displayedColumns: string[] = ['titolo', 'sottotitolo', 'testo', 'utenteCreazione','dataCreazione','tag', 'opzioni'];
-  copiaListaAppunti:Appunti[]=[];
 
   constructor(
     private userService: UserService,
@@ -69,7 +68,6 @@ export class BoardUserComponent implements OnInit {
       }),
       this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.appunti=x})
       this.tabellaTag = false;
-      this.repoAppunti.listaAppuntiUtente(this.user.id).subscribe(x=>{this.copiaListaAppunti=x})
       
   }
   cancellaAppunti(id:number){
@@ -93,7 +91,6 @@ export class BoardUserComponent implements OnInit {
   listaAppuntiXTag(){
     this.msg=""
     this.tabellaTag = true;
-    this.appunti=this.copiaListaAppunti;
     this.listaAppunti.splice(0, this.listaAppunti.length); //svuoto l'array usando splice(parte dal primo elemnto(0) e cancella tanti elementi quanto la lunghezza dell'array stesso)
     this.appunti.forEach(app => {
       app.listaTag.forEach(tag => {
@@ -113,7 +110,7 @@ export class BoardUserComponent implements OnInit {
   vediTutti(){
     this.msg=""
     this.tabellaTag=false;
-    this.appunti=this.copiaListaAppunti;
+    window.location.reload()
   }
 
   pubblica(x:Appunti){

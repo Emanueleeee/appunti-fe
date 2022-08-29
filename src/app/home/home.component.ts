@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
 
   msg:string=''
   nomeTagArr:Tag[]=[];
-  copiaListaAppunti:Appunti[]=[];
   listaAppunti:Appunti[]=[];
   tabellaTag:boolean = false;
 
@@ -41,7 +40,6 @@ export class HomeComponent implements OnInit {
       }
     );
     this.repoAppunti.listaAppuntiPub(this.pub).subscribe(x=>{this.lisAppPub=x});
-    this.repoAppunti.listaAppuntiPub(this.pub).subscribe(x=>{this.copiaListaAppunti=x});
   }
   linkTesto(id:number){
     this.appunto.id=id
@@ -54,7 +52,6 @@ export class HomeComponent implements OnInit {
   listaAppuntiXTag(){
     this.msg=""
     this.tabellaTag = true;
-    this.lisAppPub=this.copiaListaAppunti;
     this.listaAppunti.splice(0, this.listaAppunti.length); //svuoto l'array usando splice(parte dal primo elemnto(0) e cancella tanti elementi quanto la lunghezza dell'array stesso)
     this.lisAppPub.forEach(app => {
       app.listaTag.forEach(tag => {
@@ -74,7 +71,7 @@ export class HomeComponent implements OnInit {
   vediTutti(){
     this.msg=""
     this.tabellaTag=false;
-    this.lisAppPub=this.copiaListaAppunti;
+    window.location.reload()
   }
   
 }
