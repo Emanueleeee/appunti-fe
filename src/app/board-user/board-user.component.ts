@@ -88,12 +88,8 @@ export class BoardUserComponent implements OnInit {
 
   addItem(newItem: Tag[]){
     this.nomeTagArr = newItem;
-    /*
-    newItem.forEach(element => {
-      this.nomeTag=element.name;
-    });
-    */
   }
+  
   listaAppuntiXTag(){
     this.msg=""
     this.tabellaTag = true;

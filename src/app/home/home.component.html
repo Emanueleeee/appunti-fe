@@ -3,10 +3,16 @@
 <div *ngIf="lisAppPub.length>0">
 
   <div class="background">
-    <h1 style="color:white">{{ content }}</h1>   
-  
-  <div class="centered par font title font">
-  <p class="par" style="color:white" >Lista degli Appunti</p>
+    <h1 style="color:white">{{ content }}</h1> 
+    
+    <br>
+    <app-utility-tag  style=" float:right; padding-right: 20px;" (passoListaTag)="addItem($event)"> </app-utility-tag>
+    <button style=" float:right; margin: 13px;"  class="button-search" (click)="listaAppuntiXTag()"><mat-icon style="font-size: 30px; color:white" >search</mat-icon></button>  
+    <br>
+    <p style="color:white; font-size: xx-large;">{{msg}}</p>
+    <br>
+    <button style="background-color:white; color:black" *ngIf="tabellaTag==true" (click)="vediTutti()" class="btn button btn-secondary btn-lg button3"><mat-icon>view_list</mat-icon> Vedi tutti</button>
+
   
   
   <div *ngIf=" lisAppPub.length>0">
