@@ -33,7 +33,6 @@ export class BoardAdminComponent implements OnInit {
       }
     );
     this.repoAppunti.listaAppunti().subscribe(x=>{this.arrAppunti=x;});
-    console.log(this.arrAppunti)
   }
   linkTesto(id:number){
     this.appunto.id=id
