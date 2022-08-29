@@ -13,8 +13,9 @@ body, html {
   
   .bg {
     /* The image used */
-    background-image: url(https://t4.ftcdn.net/jpg/05/18/15/31/360_F_518153199_2EYtyqInpTmMciYA9NgHVWEOoMBkhxo5.jpg);
+    background-image: url();
   background-image: opacity 0.5;
+  background-color: rgba(252, 255, 199, 0.81);
     /* Full height */
   
     /* Center and scale the image nicely */
@@ -22,6 +23,10 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+
+    border-radius:  0px 0px 25px 25px;
+ 
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.64);
     
   }
 
