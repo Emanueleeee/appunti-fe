@@ -18,7 +18,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { TestoComponent } from './testo/testo.component';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UtilityTagComponent } from './utility-tag/utility-tag.component';

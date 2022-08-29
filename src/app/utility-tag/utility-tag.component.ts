@@ -61,7 +61,8 @@ export class UtilityTagComponent implements OnInit {
 
     // aggiungi tag
     if (value) {
-      this.listaTags.push({name: value});
+      let newTag = new Tag(value);
+      this.listaTags.push(newTag);
     }
 
     // pulisce il valore nell'input
@@ -91,8 +92,7 @@ export class UtilityTagComponent implements OnInit {
     });
   }
 
-  addNewItem() {
-    
+  addNewItem() { 
     this.passoListaTag.emit(this.listaTags);
   }
 
