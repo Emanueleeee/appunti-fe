@@ -1,6 +1,9 @@
 
+<div style="margin:10px" class="background" *ngIf="lisAppPub.length<=0">
+  <h1 style="color:white"> Non sono ancora stati publicati Appunti sul sito</h1> 
 
-<div >
+</div>
+<div *ngIf="lisAppPub.length>0">
 
   <div class="background">
     <h1 style="color:white">{{ content }}</h1> 
