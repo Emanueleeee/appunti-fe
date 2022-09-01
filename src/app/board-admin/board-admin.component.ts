@@ -38,5 +38,5 @@ export class BoardAdminComponent implements OnInit {
     this.appunto.id=id
     this.router.navigate(['/testo', id])
   }
-//
+
 }
